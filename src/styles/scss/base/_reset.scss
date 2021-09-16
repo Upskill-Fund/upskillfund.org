@@ -1,0 +1,100 @@
+body,
+html {
+  overflow: visible;
+}
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+::selection {
+  background: #3498db;
+  text-shadow: none;
+  color: #fff;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+}
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+a {
+  color: #f7d66f;
+  background-color: transparent;
+}
+
+[role='button'],
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+a,
+button {
+  cursor: pointer;
+  outline: none !important;
+}
+
+address,
+dl,
+ol,
+ul {
+  margin-bottom: 1rem;
+}
+dl,
+ol,
+ul {
+  margin-top: 0;
+}
+ul {
+  margin-bottom: 0;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+}
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+a {
+  outline: none !important;
+  text-decoration: none;
+  outline: 0;
+  -webkit-appearance: none;
+  box-shadow: none;
+}

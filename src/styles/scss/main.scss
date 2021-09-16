@@ -1,0 +1,23 @@
+/*
+        Main SCSS
+*/
+// bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Base
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/mixins';
+
+// Components
+@import 'components/dropdown';
+@import 'components/header';
+@import 'components/content';
+@import 'components/footer';
+@import 'components/button';
+
+// Layout
+@import 'layout/responsive';
+
+// Pages
+@import 'pages/home';
