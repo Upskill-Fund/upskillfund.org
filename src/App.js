@@ -1,5 +1,5 @@
 import './styles/scss/main.scss';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Footer from './components/Footer';
@@ -9,7 +9,7 @@ import Investments from './components/Investments';
 import Funds from './components/Funds';
 function App() {
   return (
-    <BrowserRouter>
+    <Router basename="/">
       <Header />
       {/* start of Homepage Main Content */}
       <div id="mainContainer">
@@ -26,7 +26,7 @@ function App() {
         </div>
       </div>
       {/* End of Homepage Main Content */}
-    </BrowserRouter>
+    </Router>
   );
 }
 
