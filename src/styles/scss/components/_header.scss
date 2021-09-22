@@ -19,10 +19,15 @@
   }
   .container {
     margin: 0;
-
+    padding-left: 0;
     flex-wrap: nowrap;
     .navbar-logo {
       margin-right: 25px;
+      img {
+        height: 80px;
+        width: 130px;
+        object-fit: contain;
+      }
     }
     .navbar-menu {
       flex-basis: 100%;

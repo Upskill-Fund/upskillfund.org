@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../../images/Upskill Logo/PNG/Logo Full Color.png';
 function Logo() {
   return (
     <Link to="/" className="navbar-logo">
-      <svg
+      <img src={logo} alt="upskill-fund-logo" />
+      {/* <svg
         width="52"
         height="80"
         viewBox="0 0 259 248"
@@ -16,7 +17,7 @@ function Logo() {
           fill="#3498DB"
           stroke="#3498DB"
         />
-      </svg>
+      </svg> */}
     </Link>
   );
 }

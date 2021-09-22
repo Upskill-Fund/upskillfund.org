@@ -1,0 +1,62 @@
+.about-container {
+  width: 100%;
+}
+.mission-stmt-container {
+  padding: 30px;
+  min-height: 300px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #e2e1e1;
+
+  .mission-stmt {
+    // margin-top: 30px;
+    font-weight: 700;
+    line-height: 31px;
+    text-align: center;
+    &::first-letter {
+      font-size: 200%;
+      color: green;
+    }
+  }
+}
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .cards-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    width: 100%;
+    .mini-card {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin: 10px;
+      max-width: 335px;
+      position: relative;
+      .mcard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 15px;
+        box-shadow: 2px 1px 10px, -2px -1px 10px;
+        background-color: #27ae60;
+        color: #e2e1e1;
+        position: relative;
+        img {
+          width: 80%;
+          height: 80%;
+        }
+      }
+    }
+  }
+}
