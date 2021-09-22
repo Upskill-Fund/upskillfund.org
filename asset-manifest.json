@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/upskillfund.org/static/css/main.36b1eb62.chunk.css",
-    "main.js": "/upskillfund.org/static/js/main.ab452459.chunk.js",
-    "main.js.map": "/upskillfund.org/static/js/main.ab452459.chunk.js.map",
+    "main.css": "/upskillfund.org/static/css/main.df57da84.chunk.css",
+    "main.js": "/upskillfund.org/static/js/main.b745c5dd.chunk.js",
+    "main.js.map": "/upskillfund.org/static/js/main.b745c5dd.chunk.js.map",
     "runtime-main.js": "/upskillfund.org/static/js/runtime-main.3c39e9de.js",
     "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.3c39e9de.js.map",
-    "static/js/2.bfb647e5.chunk.js": "/upskillfund.org/static/js/2.bfb647e5.chunk.js",
-    "static/js/2.bfb647e5.chunk.js.map": "/upskillfund.org/static/js/2.bfb647e5.chunk.js.map",
+    "static/js/2.2fc530fa.chunk.js": "/upskillfund.org/static/js/2.2fc530fa.chunk.js",
+    "static/js/2.2fc530fa.chunk.js.map": "/upskillfund.org/static/js/2.2fc530fa.chunk.js.map",
     "static/js/3.ec32913d.chunk.js": "/upskillfund.org/static/js/3.ec32913d.chunk.js",
     "static/js/3.ec32913d.chunk.js.map": "/upskillfund.org/static/js/3.ec32913d.chunk.js.map",
     "index.html": "/upskillfund.org/index.html",
-    "static/css/main.36b1eb62.chunk.css.map": "/upskillfund.org/static/css/main.36b1eb62.chunk.css.map",
-    "static/js/2.bfb647e5.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.bfb647e5.chunk.js.LICENSE.txt",
+    "static/css/main.df57da84.chunk.css.map": "/upskillfund.org/static/css/main.df57da84.chunk.css.map",
+    "static/js/2.2fc530fa.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.2fc530fa.chunk.js.LICENSE.txt",
+    "static/media/Logo Full Color.8124f0b8.png": "/upskillfund.org/static/media/Logo Full Color.8124f0b8.png",
     "static/media/doctor.914d7882.svg": "/upskillfund.org/static/media/doctor.914d7882.svg",
     "static/media/manager.31a02e31.svg": "/upskillfund.org/static/media/manager.31a02e31.svg",
     "static/media/men-career.7b78dccc.jpeg": "/upskillfund.org/static/media/men-career.7b78dccc.jpeg",
@@ -25,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3c39e9de.js",
-    "static/js/2.bfb647e5.chunk.js",
-    "static/css/main.36b1eb62.chunk.css",
-    "static/js/main.ab452459.chunk.js"
+    "static/js/2.2fc530fa.chunk.js",
+    "static/css/main.df57da84.chunk.css",
+    "static/js/main.b745c5dd.chunk.js"
   ]
 }
