@@ -93,10 +93,10 @@
       .btn {
         font-size: 16px;
         font-weight: 700;
-        color: #3498db;
+        color: $color-wgreen;
         &::after {
           content: '';
-          border-bottom: 1px solid #3498db;
+          border-bottom: 1px solid $color-wgreen;
           width: 100%;
           display: block;
         }

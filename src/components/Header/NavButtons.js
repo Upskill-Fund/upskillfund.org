@@ -10,9 +10,9 @@ function NavButtons() {
         </Link>
       </div>
 
-      <a href="#" target="_blank" className="icon-btn search-container">
+      <Link to="/" className="icon-btn search-container">
         <img alt="search-icon" src={searchicon} />
-      </a>
+      </Link>
       <button className="hamburger">
         <span></span>
       </button>
