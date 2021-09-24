@@ -1,0 +1,36 @@
+.field-group {
+  position: relative;
+  margin: 10px;
+
+  /* initially label is below input */
+  label {
+    display: inline-block;
+    position: absolute;
+    left: 35px;
+    top: 10px;
+    transition: all 150ms ease-in;
+    color: #676767;
+  }
+  /* when the label is activated, it jumps up (using translateY) */
+  /* you could add animation here as well */
+  label.field-active {
+    transform: translateY(-20px);
+    font-size: 0.9em;
+    color: $color-nblue;
+    z-index: 100;
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff,
+      0 1px 0 #fff, 0 -1px 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff;
+  }
+  .floating-label {
+    -webkit-appearance: none !important;
+  }
+  input {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border-color: grey;
+  }
+  textarea {
+    width: 100%;
+  }
+}

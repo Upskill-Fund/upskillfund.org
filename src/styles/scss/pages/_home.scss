@@ -1,5 +1,18 @@
 #mainContainer {
   margin-top: 81px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  min-height: calc(100vh - 281px);
 }
 .content-section {
   position: relative;
@@ -48,7 +61,6 @@
       align-items: center;
     }
     .text-container {
-      //margin: 20px;
       width: 100%;
       height: 60px;
       position: relative;
@@ -91,7 +103,6 @@
     }
     .bottom {
       width: 100%;
-      //   height: calc(100% / 3);
       transition: display 2s ease-out;
       display: flex;
       justify-content: center;

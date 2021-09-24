@@ -1,14 +1,15 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className="footer">
       <div className="container">
         <div className="row text-center top-footer-nav">
           <div className="col">
-            <a href="" className="btn">
+            <Link to="/contact" className="btn">
               Contact Us
-            </a>
+            </Link>
           </div>
           <div className="col">Media</div>
           <div className="col-md-12 text-center bottom-footer-nav">

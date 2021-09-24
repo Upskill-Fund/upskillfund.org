@@ -33,6 +33,11 @@ function Menu() {
               Funds
             </Link>
           </li>
+          <li className="navbar-menulist-item">
+            <Link to="/contact" title="contact">
+              Contact Us
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
