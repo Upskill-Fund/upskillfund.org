@@ -24,7 +24,6 @@ function Home() {
   return (
     <>
       <section className="content-section first content-cover">
-        {/* <img alt="men-career" src={img} /> */}
         <div className="container-fluid frame">
           <AnimationSection
             animationComplete={animationComplete}

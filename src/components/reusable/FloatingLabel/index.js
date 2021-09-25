@@ -5,16 +5,25 @@ function FloatingLabel(props) {
   // to activate the input field while typing
   const activateField = () => {
     setFieldActive(true);
-    console.log('insite activate field');
   };
   // to deactivate input only if it's empty
   const disableFocus = (e) => {
     if (e.target.value === '') {
       setFieldActive(false);
     }
-    console.log('inside disable focus');
+    if (e.target.name === 'email') {
+      if (e.target.value !== '') {
+        props.validateEmail(e.target.value);
+      }
+    }
   };
   const { label, type, name, value } = props;
+
+  React.useEffect(() => {
+    if (value === '') {
+      setFieldActive(false);
+    }
+  }, [value]);
 
   return (
     <div className="field-group">

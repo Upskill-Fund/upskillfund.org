@@ -9,13 +9,16 @@ function NavButtons() {
           Donate
         </Link>
       </div>
-
-      <Link to="/" className="icon-btn search-container">
-        <img alt="search-icon" src={searchicon} />
-      </Link>
-      <button className="hamburger">
-        <span></span>
-      </button>
+      <div className="search-container">
+        <Link to="/" className="icon-btn  navbar-menu-collapse navbar-menu ">
+          <img alt="search-icon" src={searchicon} />
+        </Link>
+      </div>
+      <div className="hamburger-container">
+        <button className="hamburger">
+          <span></span>
+        </button>
+      </div>
     </div>
   );
 }
