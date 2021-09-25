@@ -14,8 +14,8 @@
   /* when the label is activated, it jumps up (using translateY) */
   /* you could add animation here as well */
   label.field-active {
-    transform: translateY(-20px);
-    font-size: 0.9em;
+    transform: translateY(-22px);
+    font-size: 1em;
     color: $color-nblue;
     z-index: 100;
     text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff,
@@ -28,9 +28,18 @@
     width: 100%;
     height: 50px;
     border-radius: 5px;
-    border-color: grey;
+    border-style: solid;
+    border-color: $color-wgreen;
+    &:focus {
+      border-color: white;
+    }
   }
   textarea {
     width: 100%;
+    border-style: solid;
+    border-color: $color-wgreen;
+    &:focus {
+      border-color: white;
+    }
   }
 }

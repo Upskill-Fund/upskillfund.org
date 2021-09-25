@@ -22,23 +22,15 @@ function Contact() {
   return (
     <div className="contact-container">
       <div className="contact-text-container form-width">
-        <h1>Contact Us</h1>
-        <p>
-          Email us at:{' '}
-          <a href="mailto: contact@upskill-fund.org">
-            <b>contact@upskill-fund.org</b>
-          </a>
-          <br />
-          <span> or </span>
-          <p>Please fill and submit the form below</p>
-        </p>
+        <h3>Connecting With Us</h3>
+        <span className="line"></span>
       </div>
       <div className="contact-form-container form-width">
         <form className="contact-form">
           <FloatingLabel
             element="input"
             name="name"
-            label="Full Name"
+            label="Name"
             type="text"
             value={value}
             updateField={updateField}
@@ -54,9 +46,9 @@ function Contact() {
           <FloatingLabel
             element="textarea"
             name="message"
-            label="Message"
+            label="Your message"
             type="text"
-            rows="10"
+            rows="5"
             updateField={updateField}
           />
           <div className="button-container">
