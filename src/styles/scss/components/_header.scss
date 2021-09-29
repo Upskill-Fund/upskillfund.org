@@ -80,6 +80,16 @@
         font-size: 16px;
         font-weight: 700;
         color: $color-wgreen;
+
+        &:focus {
+          background-color: $color-wgreen;
+          color: white;
+          box-shadow: none;
+        }
+        &:hover {
+          background-color: $color-wgreen;
+          color: white;
+        }
         &::after {
           content: '';
           border-bottom: 1px solid $color-wgreen;

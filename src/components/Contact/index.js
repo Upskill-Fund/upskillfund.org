@@ -1,7 +1,6 @@
-import { Button } from 'react-bootstrap';
 import React from 'react';
 import FloatingLabel from '../reusable/FloatingLabel';
-
+import emailjs from 'emailjs-com';
 function Contact() {
   const [value, setValue] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
@@ -40,7 +39,18 @@ function Contact() {
     setValue('');
     setEmailValue('');
     setMessage('');
+
     console.log(event);
+    console.log('servie id', process.env.REACT_APP_EMAIL_JS_SERVICE_ID);
+    emailjs.init(process.env.REACT_APP_EMAIL_JS_USER_ID);
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
+        process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+        '#contactForm'
+      )
+      .then((res) => console.log('status', res.status))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -51,7 +61,7 @@ function Contact() {
       </div>
       <div className="contact-form-container form-width">
         {!isValidEmail && <p style={{ color: 'red' }}>{emailErrorMessage}</p>}
-        <form className="contact-form">
+        <form className="contact-form" id="contactForm" onSubmit={formSubmit}>
           <FloatingLabel
             element="input"
             name="name"
@@ -79,7 +89,7 @@ function Contact() {
             updateField={updateField}
           />
           <div className="button-container">
-            <Button onClick={(event) => formSubmit(event)}>Submit</Button>
+            <input type="submit" value="Submit" className="btn" />
           </div>
         </form>
       </div>

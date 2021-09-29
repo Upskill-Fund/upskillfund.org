@@ -8,6 +8,7 @@ import React from 'react';
 import Investments from './components/Investments';
 import Funds from './components/Funds';
 import Contact from './components/Contact';
+import Manifesto from './components/Manifesto';
 function App() {
   return (
     <Router basename="/">
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" component={Home} exact />
             <Route path="/about" component={About} />
             <Route path="/investments" component={Investments} />
+            <Route path="/manifesto" component={Manifesto} />
             <Route path="/funds" component={Funds} />
             <Route path="/contact" component={Contact} />
           </Switch>

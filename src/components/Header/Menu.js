@@ -17,7 +17,7 @@ function Menu() {
                 </Link>
               </li>
               <li>
-                <Link to="/investments" title="Investments">
+                <Link to="/manifesto" title="Manifesto">
                   Manifesto
                 </Link>
               </li>
