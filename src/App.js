@@ -9,6 +9,7 @@ import Investments from './components/Investments';
 import Funds from './components/Funds';
 import Contact from './components/Contact';
 import Manifesto from './components/Manifesto';
+import Donate from './components/Donate';
 function App() {
   return (
     <Router basename="/">
@@ -23,6 +24,7 @@ function App() {
             <Route path="/manifesto" component={Manifesto} />
             <Route path="/funds" component={Funds} />
             <Route path="/contact" component={Contact} />
+            <Route path="/donate" component={Donate} />
           </Switch>
         </div>
         <Footer />

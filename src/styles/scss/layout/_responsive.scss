@@ -1,8 +1,20 @@
+@media screen and (max-width: 768px) {
+  .donation-amount-list-value-box.normal {
+    padding: 0;
+    margin: 3px !important;
+    width: 34% !important;
+    max-width: 49%;
+  }
+  .donation-amount-list-value-box.other {
+    width: 100% !important;
+  }
+}
 @media (max-width: 575px) {
   .form-width {
     width: 100%;
   }
 }
+
 @media (min-width: 576px) {
   .container {
     max-width: 516px;
@@ -17,6 +29,9 @@
   }
   .form-width {
     width: 600px;
+  }
+  .donation-amount-list-value-box {
+    font-size: 15px;
   }
 }
 @media (min-width: 992px) {

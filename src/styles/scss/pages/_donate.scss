@@ -1,0 +1,218 @@
+.donate-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .donate-text {
+    color: $color-nblue;
+    font-weight: 500;
+    // max-width: 900px;
+    h3 {
+      color: $color-wgreen;
+    }
+
+    padding-top: 30px;
+  }
+  .donation-amount-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    .donation-amount {
+      padding: 30px;
+    }
+    .donation-amount-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .donation-amount-frequency-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+        .donation-amount-frequency-box {
+          width: 50%;
+          font-size: 15px;
+          line-height: 18px;
+          font-weight: 600;
+          text-transform: uppercase;
+          display: flex;
+          justify-content: center;
+          border: 2px solid $color-wgreen;
+          color: $color-wgreen;
+          label {
+            position: relative;
+            padding: 15px;
+            flex-grow: 1;
+            text-align: center;
+          }
+        }
+      }
+      .donation-amount-list {
+        margin: 14px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .donation-amount-list-value-box {
+          margin-right: 20px;
+          font-size: 21px;
+          line-height: 24px;
+          font-weight: 600;
+          color: rgba(0, 0, 0, 0.87);
+
+          border: solid 1px rgba(0, 0, 0, 0.12);
+          border-radius: 4px;
+          -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          text-align: center;
+          overflow-wrap: break-word;
+          cursor: pointer;
+          .amount-label.rf {
+            padding: 8px;
+          }
+          .amount-label {
+            display: block;
+            position: relative;
+            margin: 0;
+          }
+          .donation-amount-list-input {
+            appearance: none;
+          }
+        }
+        .donation-amount-list-value-box.normal {
+          margin: 3px;
+          min-height: 44px;
+          width: auto;
+        }
+        .donation-amount-list-value-box.other {
+          margin: 3px;
+          height: 44px;
+          border: 0;
+        }
+        // @media (max-width: 768px) {
+        //   .donation-amount-list-value-box {
+        //     padding: 0;
+        //     margin: 3px;
+        //     width: 34%;
+        //     max-width: 49%;
+        //   }
+        // }
+        .currency-picker-container {
+          display: flex;
+          color: rgba(0, 0, 0, 0.87);
+          font-size: 24px;
+          line-height: 36px;
+
+          font-weight: 700;
+          margin-top: 0;
+          border-radius: 4px;
+          position: relative;
+          .currency-picker-symbol-wrapper {
+            height: 44px;
+            background: #fff;
+            border-width: 2px 0 2px 2px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.6);
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            .currency-picker-symbol-select-wrapper {
+              text-align: left;
+              width: 76px;
+              position: relative;
+              .currency-picker-select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                display: block;
+                border: 1px solid rgba(0, 0, 0, 0.6);
+                border-radius: 3px;
+
+                padding: 10px;
+                color: rgba(0, 0, 0, 0.87);
+                font-size: 15px;
+                line-height: 24px;
+                font-weight: 400;
+                line-height: normal;
+                outline: 0;
+                background-color: #fff;
+                font-family: mulish, Arial, Helvetica, sans-serif;
+                width: 100%;
+                max-width: 100%;
+                background-image: url('../../../images/Upskill Logo/Icon/Icon-03.png');
+                background-repeat: no-repeat;
+                background-size: 15px;
+                background-position: calc(100% - 8px) center;
+                // -webkit-transform: rotate(180deg);
+                // -moz-transform: rotate(180deg);
+                // -ms-transform: rotate(180deg);
+                // -o-transform: rotate(180deg);
+                // transform: rotate(180deg);
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: auto;
+                border-width: 0 1px 0 0;
+                border-radius: 3px 0 0 3px;
+                height: 40px;
+              }
+              .currency-picker-short {
+                pointer-events: none;
+                color: rgba(0, 0, 0, 0.87);
+                font-size: 15px;
+                line-height: 24px;
+                font-weight: 600;
+                line-height: normal;
+                height: 40px;
+                border-color: rgba(0, 0, 0, 0.6);
+              }
+            }
+            .currency-symbol {
+              position: absolute;
+              margin-left: 85px;
+              top: 9px;
+              left: 0;
+              color: rgba(0, 0, 0, 0.87);
+              font-size: 21px;
+              line-height: 24px;
+              font-weight: 600;
+            }
+          }
+          .custom-currency-input-container {
+            width: 100%;
+            input {
+              display: block;
+              border: 1px solid rgba(0, 0, 0, 0.6);
+              border-radius: 3px;
+              height: 42px;
+              padding: 10px;
+              color: rgba(0, 0, 0, 0.87);
+              font-size: 15px;
+              line-height: 24px;
+              font-weight: 400;
+              line-height: normal;
+              outline: 0;
+              background-color: #fff;
+              font-family: mulish, Arial, Helvetica, sans-serif;
+              width: 100%;
+              max-width: 100%;
+              -webkit-appearance: none;
+              margin-bottom: 0;
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+              border-left-width: 0 !important;
+              height: 44px;
+              border-width: 2px 2px 2px 0;
+              text-indent: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .block-section {
+    width: 100%;
+  }
+}

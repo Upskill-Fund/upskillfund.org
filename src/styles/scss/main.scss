@@ -19,10 +19,11 @@
 @import 'components/image';
 @import 'components/floatinglabel';
 
-// Layout
-@import 'layout/responsive';
-
 // Pages
 @import 'pages/home';
 @import 'pages/about';
 @import 'pages/contact';
+@import 'pages/donate';
+
+// Layout
+@import 'layout/responsive';

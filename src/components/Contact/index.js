@@ -2,14 +2,16 @@ import React from 'react';
 import FloatingLabel from '../reusable/FloatingLabel';
 import emailjs from 'emailjs-com';
 function Contact() {
-  const [value, setValue] = React.useState('');
+  const [name, setName] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [isValidEmail, setIsValidEmail] = React.useState(true);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
+  const [success, setSuccess] = React.useState(false);
+  const [isEmptyField, setIsEmptyField] = React.useState(false);
   const updateField = (e) => {
     if (e.target.name === 'name') {
-      setValue(e.target.value);
+      setName(e.target.value);
     } else if (e.target.name === 'email') {
       setEmailValue(e.target.value);
     } else if (e.target.name === 'message') {
@@ -36,21 +38,31 @@ function Contact() {
   const formSubmit = (event) => {
     event.preventDefault();
     console.log('message submitted', message);
-    setValue('');
+    if (name === '' || emailValue === '' || message === '') {
+      setIsEmptyField(true);
+    }
+    if (name !== '' && emailValue !== '' && message !== '') {
+      console.log(event);
+      console.log('servie id', process.env.REACT_APP_EMAIL_JS_SERVICE_ID);
+      emailjs.init(process.env.REACT_APP_EMAIL_JS_USER_ID);
+      emailjs
+        .sendForm(
+          process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
+          process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+          '#contactForm'
+        )
+        .then((res) => {
+          console.log('status text', res.text);
+          setSuccess(true);
+        })
+        .catch((error) => {
+          console.log(error);
+          setSuccess(false);
+        });
+    }
+    setName('');
     setEmailValue('');
     setMessage('');
-
-    console.log(event);
-    console.log('servie id', process.env.REACT_APP_EMAIL_JS_SERVICE_ID);
-    emailjs.init(process.env.REACT_APP_EMAIL_JS_USER_ID);
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
-        process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
-        '#contactForm'
-      )
-      .then((res) => console.log('status', res.status))
-      .catch((error) => console.log(error));
   };
 
   return (
@@ -61,13 +73,17 @@ function Contact() {
       </div>
       <div className="contact-form-container form-width">
         {!isValidEmail && <p style={{ color: 'red' }}>{emailErrorMessage}</p>}
+        {success && <p style={{ color: 'green' }}>Form submitted</p>}
+        {isEmptyField && (
+          <p style={{ color: 'red' }}>Fill out the empty fields</p>
+        )}
         <form className="contact-form" id="contactForm" onSubmit={formSubmit}>
           <FloatingLabel
             element="input"
             name="name"
             label="Name"
             type="text"
-            value={value}
+            value={name}
             updateField={updateField}
           />
           <FloatingLabel
