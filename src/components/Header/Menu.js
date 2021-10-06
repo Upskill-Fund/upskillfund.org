@@ -2,21 +2,49 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Menu() {
+  const [isClicked, setIsClicked] = React.useState(false);
+  const handleClickClose = (e) => {
+    e.preventDefault();
+    setIsClicked(true);
+    console.log('isclicked true');
+  };
+  const handleClickOpen = (e) => {
+    e.preventDefault();
+    setIsClicked(false);
+    console.log('isclicked false');
+  };
   return (
     <div className="navbar-menu-collapse navbar-menu ">
       <div className=" navbar-menu-collapse navbar-menu ">
         <ul className="nav navbar-menulist ">
-          <li className="navbar-menulist-item dropdown">
-            <Link to="/about" title="About">
+          <li
+            className={`navbar-menulist-item dropdown `}
+            onClick={handleClickClose}
+            onMouseEnter={handleClickOpen}
+          >
+            <Link
+              className="btn dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              id="dropdown-about"
+              to="/about"
+              title="About"
+            >
               About
             </Link>
-            <ul className="dropdown-menu">
-              <li>
+            <ul
+              className={`dropdown-menu ${
+                isClicked ? 'hide-dropdown' : 'show-dropdown'
+              }`}
+              aria-labelledby="dropdown-about"
+            >
+              <li onClick={handleClickClose}>
                 <Link to="/about" title="About">
                   About
                 </Link>
               </li>
-              <li>
+              <li onClick={handleClickClose}>
                 <Link to="/manifesto" title="Manifesto">
                   Manifesto
                 </Link>

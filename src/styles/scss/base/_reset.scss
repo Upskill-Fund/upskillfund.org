@@ -102,3 +102,19 @@ a {
 ul {
   list-style: none;
 }
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+}
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .btn {
+    border-color: $color-wgreen;
+    background-color: $color-wgreen;
+    color: white;
+    font-weight: 700;
+  }
+}
