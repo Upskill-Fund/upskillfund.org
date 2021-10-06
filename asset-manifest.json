@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/upskillfund.org/static/css/main.88a0306f.chunk.css",
-    "main.js": "/upskillfund.org/static/js/main.d3efb3ec.chunk.js",
-    "main.js.map": "/upskillfund.org/static/js/main.d3efb3ec.chunk.js.map",
+    "main.css": "/upskillfund.org/static/css/main.656d9d47.chunk.css",
+    "main.js": "/upskillfund.org/static/js/main.6c0eec62.chunk.js",
+    "main.js.map": "/upskillfund.org/static/js/main.6c0eec62.chunk.js.map",
     "runtime-main.js": "/upskillfund.org/static/js/runtime-main.197581e3.js",
     "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.197581e3.js.map",
-    "static/js/2.0340c2b9.chunk.js": "/upskillfund.org/static/js/2.0340c2b9.chunk.js",
-    "static/js/2.0340c2b9.chunk.js.map": "/upskillfund.org/static/js/2.0340c2b9.chunk.js.map",
+    "static/js/2.cab9c629.chunk.js": "/upskillfund.org/static/js/2.cab9c629.chunk.js",
+    "static/js/2.cab9c629.chunk.js.map": "/upskillfund.org/static/js/2.cab9c629.chunk.js.map",
     "static/js/3.754c6738.chunk.js": "/upskillfund.org/static/js/3.754c6738.chunk.js",
     "static/js/3.754c6738.chunk.js.map": "/upskillfund.org/static/js/3.754c6738.chunk.js.map",
     "index.html": "/upskillfund.org/index.html",
-    "static/css/main.88a0306f.chunk.css.map": "/upskillfund.org/static/css/main.88a0306f.chunk.css.map",
-    "static/js/2.0340c2b9.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.0340c2b9.chunk.js.LICENSE.txt",
-    "static/media/main.scss": "/upskillfund.org/static/media/Icon-03.aaf3204b.png",
+    "static/css/main.656d9d47.chunk.css.map": "/upskillfund.org/static/css/main.656d9d47.chunk.css.map",
+    "static/js/2.cab9c629.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.cab9c629.chunk.js.LICENSE.txt",
     "static/media/Logo Full Color.8124f0b8.png": "/upskillfund.org/static/media/Logo Full Color.8124f0b8.png",
     "static/media/doctor.914d7882.svg": "/upskillfund.org/static/media/doctor.914d7882.svg",
     "static/media/helping hands.5f2b46ff.jpeg": "/upskillfund.org/static/media/helping hands.5f2b46ff.jpeg",
@@ -28,8 +27,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.197581e3.js",
-    "static/js/2.0340c2b9.chunk.js",
-    "static/css/main.88a0306f.chunk.css",
-    "static/js/main.d3efb3ec.chunk.js"
+    "static/js/2.cab9c629.chunk.js",
+    "static/css/main.656d9d47.chunk.css",
+    "static/js/main.6c0eec62.chunk.js"
   ]
 }
