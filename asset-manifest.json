@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/upskillfund.org/static/css/main.656d9d47.chunk.css",
-    "main.js": "/upskillfund.org/static/js/main.6c0eec62.chunk.js",
-    "main.js.map": "/upskillfund.org/static/js/main.6c0eec62.chunk.js.map",
-    "runtime-main.js": "/upskillfund.org/static/js/runtime-main.197581e3.js",
-    "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.197581e3.js.map",
-    "static/js/2.cab9c629.chunk.js": "/upskillfund.org/static/js/2.cab9c629.chunk.js",
-    "static/js/2.cab9c629.chunk.js.map": "/upskillfund.org/static/js/2.cab9c629.chunk.js.map",
-    "static/js/3.754c6738.chunk.js": "/upskillfund.org/static/js/3.754c6738.chunk.js",
-    "static/js/3.754c6738.chunk.js.map": "/upskillfund.org/static/js/3.754c6738.chunk.js.map",
+    "main.css": "/upskillfund.org/static/css/main.9eafaf55.chunk.css",
+    "main.js": "/upskillfund.org/static/js/main.57dbe5bf.chunk.js",
+    "main.js.map": "/upskillfund.org/static/js/main.57dbe5bf.chunk.js.map",
+    "runtime-main.js": "/upskillfund.org/static/js/runtime-main.14e82e1c.js",
+    "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.14e82e1c.js.map",
+    "static/js/2.85465741.chunk.js": "/upskillfund.org/static/js/2.85465741.chunk.js",
+    "static/js/2.85465741.chunk.js.map": "/upskillfund.org/static/js/2.85465741.chunk.js.map",
+    "static/js/3.f9afaebc.chunk.js": "/upskillfund.org/static/js/3.f9afaebc.chunk.js",
+    "static/js/3.f9afaebc.chunk.js.map": "/upskillfund.org/static/js/3.f9afaebc.chunk.js.map",
     "index.html": "/upskillfund.org/index.html",
-    "static/css/main.656d9d47.chunk.css.map": "/upskillfund.org/static/css/main.656d9d47.chunk.css.map",
-    "static/js/2.cab9c629.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.cab9c629.chunk.js.LICENSE.txt",
+    "static/css/main.9eafaf55.chunk.css.map": "/upskillfund.org/static/css/main.9eafaf55.chunk.css.map",
+    "static/js/2.85465741.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.85465741.chunk.js.LICENSE.txt",
     "static/media/Logo Full Color.8124f0b8.png": "/upskillfund.org/static/media/Logo Full Color.8124f0b8.png",
     "static/media/doctor.914d7882.svg": "/upskillfund.org/static/media/doctor.914d7882.svg",
     "static/media/helping hands.5f2b46ff.jpeg": "/upskillfund.org/static/media/helping hands.5f2b46ff.jpeg",
@@ -26,9 +26,9 @@
     "static/media/women-career.353f7a9f.jpeg": "/upskillfund.org/static/media/women-career.353f7a9f.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.197581e3.js",
-    "static/js/2.cab9c629.chunk.js",
-    "static/css/main.656d9d47.chunk.css",
-    "static/js/main.6c0eec62.chunk.js"
+    "static/js/runtime-main.14e82e1c.js",
+    "static/js/2.85465741.chunk.js",
+    "static/css/main.9eafaf55.chunk.css",
+    "static/js/main.57dbe5bf.chunk.js"
   ]
 }
