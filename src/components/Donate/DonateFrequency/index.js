@@ -1,138 +1,147 @@
 import React from 'react';
 
-function DonateFrequency() {
+function DonateFrequency(props) {
+  const {
+    donateFrequencyList: frequency,
+    donateAmountsList: amounts,
+    handleMouseEvent,
+    handleClickEvent,
+    isHovered,
+    isActive,
+    isAmountHovered,
+    isAmountActive,
+    customActive,
+    handleInputChange,
+    amountInvalid,
+  } = props;
+
   return (
     <section className="block-section">
       <div className="donation-amount-container">
         <section className="donation-amount">
           <div className="donation-amount-box">
             <div className="donation-amount-frequency-container">
-              <div
-                className="donation-amount-frequency-box"
-                style={{ color: 'white', backgroundColor: '#5ab947' }}
-              >
-                <label>One time</label>
-              </div>
-              <div className="donation-amount-frequency-box">
-                <label>Monthly</label>
-              </div>
+              {frequency.map((item, index) => (
+                <div
+                  id={`${index}div`}
+                  key={`${index}${item}`}
+                  className="donation-amount-frequency-box"
+                  style={
+                    isActive[index]
+                      ? {
+                          color: 'rgb(255,255,255)',
+                          backgroundColor: '#5ab947',
+                        }
+                      : {
+                          color: '#5ab947',
+                          backgroundColor: isHovered
+                            ? 'rgba(90,185,71,0.12)'
+                            : 'rgb(255,255,255)',
+                        }
+                  }
+                >
+                  <label
+                    className="donation-amount-list-input-label"
+                    onMouseEnter={handleMouseEvent}
+                    onMouseLeave={handleMouseEvent}
+                    onClick={handleClickEvent}
+                    id={`${item}-label`}
+                  >
+                    <input
+                      type="radio"
+                      name="donation-frequency"
+                      id={`donation-amount-${item}-radio-input`}
+                      className="donation-amount-list-input"
+                    />
+                    {item}
+                  </label>
+                </div>
+              ))}
             </div>
-            <p>
-              Choose a <b>one time </b>amount
-            </p>
-            <ul className="donation-amount-list">
-              <li
-                className="donation-amount-list-value-box normal"
-                style={{
-                  color: 'white',
-                  backgroundColor: '#5ab947',
-                  border: '2px solid #5ab947',
-                }}
-              >
-                <label className="amount-label rf">
-                  <input
-                    type="radio"
-                    id="D-A500"
-                    name="donation-amount"
-                    className="donation-amount-list-input"
-                  />
-                  $500
-                </label>
-              </li>
-              <li
-                className="donation-amount-list-value-box normal"
-                style={{
-                  color: 'black',
-                  backgroundColor: 'rgb(90, 185, 71,0.12)',
-                  border: '2px solid #5ab947',
-                }}
-              >
-                <label className="amount-label rf">
-                  <input
-                    type="radio"
-                    id="D-A100"
-                    name="donation-amount"
-                    className="donation-amount-list-input"
-                  />
-                  $100
-                </label>
-              </li>
-              <li
-                className="donation-amount-list-value-box normal"
-                style={{
-                  color: 'black',
-                  backgroundColor: 'rgb(90, 185, 71,0.12)',
-                  border: '2px solid #5ab947',
-                }}
-              >
-                <label className="amount-label rf">
-                  <input
-                    type="radio"
-                    id="D-A50"
-                    name="donation-amount"
-                    className="donation-amount-list-input"
-                  />
-                  $50
-                </label>
-              </li>
-              <li
-                className="donation-amount-list-value-box normal"
-                style={{
-                  color: 'black',
-                  backgroundColor: 'rgb(90, 185, 71,0.12)',
-                  border: '2px solid #5ab947',
-                }}
-              >
-                <label className="amount-label rf">
-                  <input
-                    type="radio"
-                    id="D-A25"
-                    name="donation-amount"
-                    className="donation-amount-list-input"
-                  />
-                  $25
-                </label>
-              </li>
-              <li
-                className="donation-amount-list-value-box normal"
-                style={{
-                  color: 'black',
-                  backgroundColor: 'rgb(90, 185, 71,0.12)',
-                  border: '2px solid #5ab947',
-                }}
-              >
-                <label className="amount-label rf">
-                  <span>$</span>
-                  <input
-                    className="donation-amount-list-input custom-amount"
-                    type="text"
-                    pattern="[0-9]"
-                    name="custom-amount"
-                    placeholder="amount"
-                  ></input>
-                </label>
-              </li>
-              {/* <li className="donation-amount-list-value-box other">
-                <label className="amount-label other" id="D-AOther">
-                  <div id="custom-amount" class="currency-picker-container">
-                    <div className="currency-picker-symbol-wrapper">
-                      <div className="currency-picker-symbol-select-wrapper">
-                        <select className="currency-picker-select">
-                          <option label="USD" value="USD">
-                            USD
-                          </option>
-                        </select>
-                        <span className="currency-picker-short">USD</span>
-                      </div>
-                      <span className="currency-symbol">$</span>
-                    </div>
-                    <div className="custom-currency-input-container">
-                      <input placeholder="Other"></input>
-                    </div>
-                  </div>
-                </label>
-              </li> */}
-            </ul>
+            {frequency.map((item, index) =>
+              isActive[index] ? (
+                <p>
+                  Choose a <b>{item} </b>amount
+                </p>
+              ) : (
+                ''
+              )
+            )}
+            {
+              <ul className="donation-amount-list">
+                {amounts.map((value, index) => (
+                  <li
+                    key={`${value}`}
+                    className="donation-amount-list-value-box normal"
+                    style={
+                      isAmountActive[index]
+                        ? {
+                            color: 'rgb(255,255,255)',
+                            backgroundColor: '#5ab947',
+                            border: '2px solid #5ab947',
+                          }
+                        : {
+                            color: isAmountHovered[index]
+                              ? 'rgb(255,255,255)'
+                              : '#5ab947',
+                            backgroundColor: isAmountHovered[index]
+                              ? 'rgb(90, 185, 71)'
+                              : 'rgba(90,185,71,0.12)',
+                            border: '2px solid #5ab947',
+                          }
+                    }
+                  >
+                    <label
+                      className="amount-label rf donation-amount-list-input-label"
+                      id={`D-A${value}-label`}
+                      onMouseEnter={handleMouseEvent}
+                      onMouseLeave={handleMouseEvent}
+                      onClick={handleClickEvent}
+                    >
+                      <input
+                        type="radio"
+                        id={`D-A${value}`}
+                        name="donation-amount"
+                        className="donation-amount-list-input"
+                      />
+                      {`$${value}`}
+                    </label>
+                  </li>
+                ))}
+                <li
+                  className="donation-amount-list-value-box normal"
+                  style={{
+                    color: 'rgb(0,0,0)',
+                    backgroundColor: 'rgb(255,255,255)',
+                    border: customActive
+                      ? '2px solid #5ab947'
+                      : '2px solid rgb(0,0,0)',
+                  }}
+                >
+                  <label className="amount-label rf donation-amount-list-input-label">
+                    <span>$</span>
+                    <input
+                      id={`D-ACustom-label`}
+                      onFocus={handleClickEvent}
+                      className="donation-amount-list-input custom-amount"
+                      type="text"
+                      name="custom-amount"
+                      placeholder="amount"
+                      onChange={handleInputChange}
+                    ></input>
+                  </label>
+                </li>
+              </ul>
+            }
+            {amountInvalid ? (
+              <div className="d-flex justify-content-end">
+                <small style={{ color: 'red' }}>
+                  Please enter valid currency amount
+                </small>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </section>
       </div>

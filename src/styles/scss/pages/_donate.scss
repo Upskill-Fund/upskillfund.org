@@ -3,28 +3,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-.block-section {
-  width: 100%;
-}
-//donate text
-.donate-text {
-  color: $color-nblue;
-  font-weight: 500;
-  // max-width: 900px;
-  h3 {
-    color: $color-wgreen;
-  }
 
-  padding: 30px;
+  .block-section {
+    width: 100%;
+  }
+  //donate text
+  .donate-text {
+    color: $color-nblue;
+    font-weight: 500;
+    // max-width: 900px;
+    h3 {
+      color: $color-wgreen;
+    }
+
+    padding: 40px 40px 20px;
+  }
 }
 //donate frequency
 .donation-amount-container {
-  margin: 0;
-  padding: 0;
   width: 100%;
   .donation-amount {
-    padding: 30px;
+    padding: 40px 40px 20px;
+    padding-top: 20px;
   }
   .donation-amount-box {
     width: 100%;
@@ -80,14 +80,12 @@
         .amount-label {
           display: block;
           position: relative;
-          margin: 0;
         }
-        .donation-amount-list-input {
-          appearance: none;
-        }
+
         .custom-amount {
           border: none;
           text-indent: 15px;
+          width: 80%;
           &:focus {
             //border:none;
             box-shadow: none;
@@ -99,17 +97,26 @@
         min-height: 44px;
         width: auto;
       }
-      .donation-amount-list-value-box.other {
-        margin: 3px;
-        height: 44px;
-        border: 1px solid black;
-      }
     }
   }
 }
+.donation-amount-list-input {
+  appearance: none;
+  width: fit-content;
+  height: 100%;
+  &:focus {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+  }
+}
+.donation-amount-list-input-label {
+  margin: 0;
+  min-height: 44px;
+}
 //donate donor
 .donation-donor {
-  padding: 30px;
+  padding: 40px 40px 20px;
+  padding-top: 20px;
   border-top: 1px solid #e2e2e2;
 }
 .donation-subtitle {
@@ -160,6 +167,7 @@
 .donor-text-area {
   width: 100%;
   max-width: 100%;
+  text-indent: 30px;
 }
 .donate-button-container {
   display: flex;

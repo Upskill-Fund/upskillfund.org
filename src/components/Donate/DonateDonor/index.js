@@ -23,13 +23,23 @@ function DonateDonor() {
               <span className="donor-label required  label-column">
                 First Name
               </span>
-              <input type="text" name="fname" className="donor-text-input" />
+              <input
+                type="text"
+                name="fname"
+                className="donor-text-input"
+                required
+              />
             </div>
             <div className="col-6 donor-half-box">
               <span className="donor-label required  label-column">
                 Last Name
               </span>
-              <input type="text" name="lname" className="donor-text-input" />
+              <input
+                type="text"
+                name="lname"
+                className="donor-text-input"
+                required
+              />
             </div>
           </div>
         </div>
@@ -43,6 +53,7 @@ function DonateDonor() {
                 type="email"
                 name="email"
                 className="donor-text-input"
+                required
               ></input>
               <small className="">Your receipt will be emailed here.</small>
             </div>
@@ -72,7 +83,11 @@ function DonateDonor() {
               <span className="donor-label">Leave a comment</span>
             </div>
             <div className="col-12">
-              <textarea rows="5" className="donor-text-area"></textarea>
+              <textarea
+                rows="5"
+                className="donor-text-area"
+                placeholder="Your Message"
+              ></textarea>
             </div>
           </div>
         </div>
