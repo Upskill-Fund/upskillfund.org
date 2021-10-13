@@ -1,6 +1,6 @@
 import React from 'react';
 import FloatingLabel from '../reusable/FloatingLabel';
-import emailjs from 'emailjs-com';
+
 function Contact() {
   const [name, setName] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
@@ -35,34 +35,34 @@ function Contact() {
     }
   };
 
-  const formSubmit = (event) => {
+  const formSubmission = async (event) => {
     event.preventDefault();
-    console.log('message submitted', message);
+    const data = {
+      name: name,
+      email: emailValue,
+      message: message,
+    };
     if (name === '' || emailValue === '' || message === '') {
       setIsEmptyField(true);
     }
     if (name !== '' && emailValue !== '' && message !== '') {
-      console.log(event);
-      console.log('servie id', process.env.REACT_APP_EMAIL_JS_SERVICE_ID);
-      emailjs.init(process.env.REACT_APP_EMAIL_JS_USER_ID);
-      emailjs
-        .sendForm(
-          process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
-          process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
-          '#contactForm'
-        )
-        .then((res) => {
-          console.log('status text', res.text);
+      await fetch(process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('message sent to slack');
           setSuccess(true);
+          setName('');
+          setEmailValue('');
+          setMessage('');
         })
         .catch((error) => {
-          console.log(error);
+          console.log('error', error, JSON.stringify(data));
           setSuccess(false);
         });
     }
-    setName('');
-    setEmailValue('');
-    setMessage('');
   };
 
   return (
@@ -77,7 +77,11 @@ function Contact() {
         {isEmptyField && (
           <p style={{ color: 'red' }}>Fill out the empty fields</p>
         )}
-        <form className="contact-form" id="contactForm" onSubmit={formSubmit}>
+        <form
+          className="contact-form"
+          id="contactForm"
+          onSubmit={formSubmission}
+        >
           <FloatingLabel
             element="input"
             name="name"
