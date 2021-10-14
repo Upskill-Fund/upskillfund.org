@@ -9,6 +9,7 @@ function Contact() {
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [success, setSuccess] = React.useState(false);
   const [isEmptyField, setIsEmptyField] = React.useState(false);
+  const webhook = 'https://hooks.zapier.com/hooks/catch/6492165/btuks6o/';
   const updateField = (e) => {
     if (e.target.name === 'name') {
       setName(e.target.value);
@@ -47,7 +48,7 @@ function Contact() {
     }
     if (name !== '' && emailValue !== '' && message !== '') {
       console.log('env', process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL);
-      await fetch(process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL, {
+      await fetch(webhook, {
         method: 'POST',
         body: JSON.stringify(data),
       })
