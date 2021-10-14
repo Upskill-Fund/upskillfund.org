@@ -19,10 +19,10 @@ jobs:
 
       - name: Install
         run: npm install
-
-      - name: Build
         env:
           REACT_APP_CONTACT_FORM_WEBHOOK_URL: ${{secrets.REACT_APP_CONTACT_FORM_WEBHOOK_URL}}
+
+      - name: Build
         run: CI='' npm run build
 
       - name: Deploy
