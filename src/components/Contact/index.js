@@ -46,6 +46,7 @@ function Contact() {
       setIsEmptyField(true);
     }
     if (name !== '' && emailValue !== '' && message !== '') {
+      console.log('env', process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL);
       await fetch(process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL, {
         method: 'POST',
         body: JSON.stringify(data),
