@@ -13,14 +13,15 @@ jobs:
       matrix:
         node-version: [15.x]
 
+    env:
+      REACT_APP_CONTACT_FORM_WEBHOOK_URL: ${{secrets.REACT_APP_CONTACT_FORM_WEBHOOK_URL}}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
       - name: Install
         run: npm install
-        env:
-          REACT_APP_CONTACT_FORM_WEBHOOK_URL: ${{secrets.REACT_APP_CONTACT_FORM_WEBHOOK_URL}}
 
       - name: Build
         run: CI='' npm run build
