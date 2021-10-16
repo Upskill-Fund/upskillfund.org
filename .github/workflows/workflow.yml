@@ -24,12 +24,14 @@ jobs:
         run: |
           npm install
           echo "url: ${{env.REACT_APP_CONTACT_FORM_WEBHOOK_URL}}"
+        working-directory: client
 
       - name: Build
         run: CI='' npm run build
+        working-directory: client
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          folder: client/build # The folder the action should deploy.
