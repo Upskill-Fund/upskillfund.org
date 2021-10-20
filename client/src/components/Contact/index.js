@@ -1,6 +1,6 @@
 import React from 'react';
 import FloatingLabel from '../reusable/FloatingLabel';
-
+import { EmailValidation } from '../../helper';
 function Contact() {
   const [name, setName] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
@@ -22,11 +22,9 @@ function Contact() {
   };
 
   const validateEmail = (value) => {
-    console.log('validate email');
-    let re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (re.test(value)) {
+    //regular expression for valid email address
+    const emailValid = EmailValidation(value);
+    if (emailValid) {
       // this is a valid email address
       setIsValidEmail(true);
     } else {
@@ -47,14 +45,12 @@ function Contact() {
       setIsEmptyField(true);
     }
     if (name !== '' && emailValue !== '' && message !== '') {
-      console.log('env', process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL);
       await fetch(webhook, {
         method: 'POST',
         body: JSON.stringify(data),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log('message sent to slack');
           setSuccess(true);
           setName('');
           setEmailValue('');

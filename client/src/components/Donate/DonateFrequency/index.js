@@ -13,6 +13,7 @@ function DonateFrequency(props) {
     customActive,
     handleInputChange,
     amountInvalid,
+    amountSelected,
   } = props;
 
   return (
@@ -60,7 +61,7 @@ function DonateFrequency(props) {
             </div>
             {frequency.map((item, index) =>
               isActive[index] ? (
-                <p>
+                <p key={item}>
                   Choose a <b>{item} </b>amount
                 </p>
               ) : (
@@ -126,6 +127,7 @@ function DonateFrequency(props) {
                       className="donation-amount-list-input custom-amount"
                       type="text"
                       name="custom-amount"
+                      value={customActive ? amountSelected : ``}
                       placeholder="amount"
                       onChange={handleInputChange}
                     ></input>

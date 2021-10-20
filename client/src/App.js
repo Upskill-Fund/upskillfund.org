@@ -1,5 +1,5 @@
 import './styles/scss/main.scss';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Footer from './components/Footer';
@@ -10,6 +10,8 @@ import Funds from './components/Funds';
 import Contact from './components/Contact';
 import Manifesto from './components/Manifesto';
 import Donate from './components/Donate';
+import SuccessDonation from './components/SuccessDonation';
+import CancelledDonation from './components/CancelledDonation';
 function App() {
   return (
     <Router basename="/">
@@ -25,6 +27,8 @@ function App() {
             <Route path="/funds" component={Funds} />
             <Route path="/contact" component={Contact} />
             <Route path="/donate" component={Donate} />
+            <Route path="/success" component={SuccessDonation} />
+            <Route path="/canceled" component={CancelledDonation} />
           </Switch>
         </div>
         <Footer />
