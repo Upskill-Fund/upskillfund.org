@@ -1,5 +1,5 @@
 import './styles/scss/main.scss';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Footer from './components/Footer';
@@ -14,7 +14,7 @@ import SuccessDonation from './components/SuccessDonation';
 import CancelledDonation from './components/CancelledDonation';
 function App() {
   return (
-    <Router basename="/">
+    <Router>
       <Header />
       {/* start of Homepage Main Content */}
       <div id="mainContainer">
