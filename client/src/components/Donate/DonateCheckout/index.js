@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 function DonateCheckout(props) {
   const stripePromise = loadStripe(
-    'pk_test_51JfpeGIhvbrRb38mYDmryFeWWPtoy2i1joA62N83o6MIVpwzf6pfK8iOavS8xApHbidTXm5HKiNMc0RVCKtL55hV00Ijvr9X1O'
+    'pk_test_51JiNn0FSnM5fxxMrzxIXMIkN6QRWSczyksfBPkipUBlI7KlsOCPg66em28XTbJ1E56PXryjgvL3uyMmlbgbG1Ris00vFvwcJH2'
   );
 
   const {
@@ -34,7 +34,7 @@ function DonateCheckout(props) {
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: 'price_1JnVTUIhvbrRb38mTBVjjBjc', // Replace with the ID of your price
+          price: 'price_1JnUWfFSnM5fxxMrmgb4wesu', // Replace with the ID of your price
           quantity: 1,
         },
       ],
