@@ -14,7 +14,7 @@ jobs:
         node-version: [15.x]
 
     env:
-      REACT_APP_CONTACT_FORM_WEBHOOK_URL: ${{ secrets.CONTACT_FORM_WEBHOOK_URL }}
+      REACT_APP_CONTACT_FORM_WEBHOOK_URL: ${{ secrets.REACT_APP_CONTACT_FORM_WEBHOOK_URL }}
 
     steps:
       - name: Checkout
