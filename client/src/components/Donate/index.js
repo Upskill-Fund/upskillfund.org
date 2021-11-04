@@ -2,13 +2,9 @@ import React from 'react';
 import DonateFrequency from './DonateFrequency';
 import DonateDonor from './DonateDonor';
 import DonateText from './DonateText';
-import {
-  EmailValidation,
-  fetchFromAPI,
-  PhoneNumberValidation,
-} from '../../helper';
+import { EmailValidation, PhoneNumberValidation } from '../../helper';
 import DonateCheckout from './DonateCheckout';
-import { useStripe } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 function Donate() {
   //DonteFrequency component related variables
@@ -153,13 +149,13 @@ function Donate() {
   const [phone, setPhone] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [show, setShow] = React.useState(true);
-
+  const [priceId, setPriceId] = React.useState('');
+  const [paymentMode, setPaymentMode] = React.useState('');
   const handleInputChange = (event) => {
     event.preventDefault();
     const element = event.target.id;
     const value = event.target.value;
     if (element === 'D-ACustom-label') {
-      // const amount = event.target.value;
       if (value.match(/[a-z]/i)) {
         //amount is invalid if it has alphabets
         setAmountInvalid(true);
@@ -168,19 +164,14 @@ function Donate() {
         setAmountSelected(value);
       }
     } else if (element === 'donor-firstname') {
-      console.log('firstname', event.target.value);
       setFirstName(value);
     } else if (element === 'donor-lastname') {
-      console.log('lastname', event.target.value);
       setLastName(value);
     } else if (element === 'donor-email') {
-      console.log('email', event.target.value);
       setEmail(value);
     } else if (element === 'donor-ph-number') {
-      console.log('ph number', event.target.value);
       setPhone(value);
     } else if (element === 'donor-message') {
-      console.log('message', event.target.value);
       setMessage(value);
     }
   };
@@ -200,7 +191,6 @@ function Donate() {
   const validatePhoneNumber = (event) => {
     const value = event.target.value;
     const phNumberValidity = PhoneNumberValidation(value);
-    console.log('phNumberValidity', phNumberValidity);
     if (phNumberValidity || value === '') {
       setIsValidPhoneNumber(true);
     } else {
@@ -209,44 +199,43 @@ function Donate() {
   };
   const handleDonation = (event) => {
     event.preventDefault();
-    console.log(firstName, lastName, email, phone, message);
+    const frequency = frequencySelected === 'one-time' ? 'ONCE' : 'REC';
+    setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
+
+    setPaymentMode(
+      frequencySelected === 'one-time' ? 'payment' : 'subscription'
+    );
     setShow(false);
   };
-
-  const stripe = useStripe();
-
-  const handleDonationCheckout = async (event) => {
-    event.preventDefault();
-    const line_items = [
-      {
-        quantity: 1,
-        price_data: {
-          currency: 'usd',
-          unit_amount: amountSelected * 100,
-          product_data: {
-            name: 'donation',
-          },
-        },
-      },
-    ];
-    const response = await fetchFromAPI('create-checkout-session', {
-      body: { line_items: line_items, customer_email: email },
-    });
-    const { sessionId } = response;
-    console.log('sessionId', sessionId);
-    const { error } = await stripe.redirectToCheckout({ sessionId });
-    if (error) {
-      console.log(error);
-    }
-  };
-
   const handleDonationCancel = (event) => {
     event.preventDefault();
     setShow(true);
   };
 
-  // console.log('amountSelected', amountSelected);
-  // console.log('frequencySelected', frequencySelected);
+  const stripePromise = loadStripe(
+    process.env.REACT_APP_PAYMENT_PUBLISHABLE_KEY
+  );
+
+  const donationCheckout = async () => {
+    const stripe = await stripePromise;
+    let domain = window.location.href.replace(/[^/]*$/, '');
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        {
+          price: process.env[priceId], // Replace with the ID of your price
+          quantity: 1,
+        },
+      ],
+      mode: paymentMode,
+      successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
+      cancelUrl: domain + 'canceled',
+    });
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `error.message`.
+    if (error) console.log('error');
+  };
+
   return (
     <div className="donate-container container">
       <form onSubmit={handleDonation} className={show ? 'show' : 'hide'}>
@@ -284,8 +273,8 @@ function Donate() {
         phone={phone}
         email={email}
         message={message}
-        handleDonationCheckout={handleDonationCheckout}
         handleDonationCancel={handleDonationCancel}
+        donationCheckout={donationCheckout}
       />
     </div>
   );

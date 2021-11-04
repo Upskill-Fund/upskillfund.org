@@ -1,5 +1,3 @@
-const API = 'http://localhost:8080';
-
 export const EmailValidation = (value) => {
   let re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -19,15 +17,18 @@ export const PhoneNumberValidation = (value) => {
   }
 };
 
-export async function fetchFromAPI(endpoint, opts) {
-  const { method, body } = { method: 'POST', body: null, ...opts };
-
-  const res = await fetch(`${API}/${endpoint}`, {
+export async function fetchFromUrl(url, opts) {
+  const { method, body } = { body: null, ...opts };
+  await fetch(url, {
     method,
     ...(body && { body: JSON.stringify(body) }),
-    headers: {
+    header: {
       'Content-Type': 'application/json',
     },
-  });
-  return res.json();
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => error);
 }

@@ -1,11 +1,6 @@
 import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
 
 function DonateCheckout(props) {
-  const stripePromise = loadStripe(
-    'pk_test_51JiNn0FSnM5fxxMrzxIXMIkN6QRWSczyksfBPkipUBlI7KlsOCPg66em28XTbJ1E56PXryjgvL3uyMmlbgbG1Ris00vFvwcJH2'
-  );
-
   const {
     show,
     amountSelected,
@@ -14,39 +9,9 @@ function DonateCheckout(props) {
     lastName,
     email,
     phone,
-
-    // handleDonationCheckout,
+    donationCheckout,
     handleDonationCancel,
   } = props;
-
-  const handleClientOnlyStripeDonation = async (event) => {
-    event.preventDefault();
-
-    const stripe = await stripePromise;
-    // var DOMAIN = location.href.replace(/[^/]*$/, '');
-    let domain = window.location.href.replace(/[^/]*$/, '');
-    console.log(
-      'domain and replace',
-      window.location.href,
-      'and',
-      window.location.href.replace(/[^/]*$/, '')
-    );
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        {
-          price: 'price_1JnUWfFSnM5fxxMrmgb4wesu', // Replace with the ID of your price
-          quantity: 1,
-        },
-      ],
-      mode: 'payment',
-      successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
-      cancelUrl: domain + 'canceled',
-    });
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
-    if (error) console.log('error');
-  };
 
   return (
     <div className={`donate-checkout-container ${show ? 'hide' : 'show'} `}>
@@ -83,7 +48,7 @@ function DonateCheckout(props) {
           <button
             type="submit"
             className="btn btn-primary mr-4"
-            onClick={handleClientOnlyStripeDonation}
+            onClick={donationCheckout}
           >
             Submit
           </button>

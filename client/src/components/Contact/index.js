@@ -1,6 +1,6 @@
 import React from 'react';
 import FloatingLabel from '../reusable/FloatingLabel';
-import { EmailValidation } from '../../helper';
+import { EmailValidation, fetchFromUrl } from '../../helper';
 function Contact() {
   const [name, setName] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
@@ -9,7 +9,7 @@ function Contact() {
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [success, setSuccess] = React.useState(false);
   const [isEmptyField, setIsEmptyField] = React.useState(false);
-  const webhook = 'https://hooks.zapier.com/hooks/catch/6492165/btuks6o/';
+
   const updateField = (e) => {
     if (e.target.name === 'name') {
       setName(e.target.value);
@@ -41,23 +41,26 @@ function Contact() {
       email: emailValue,
       message: message,
     };
+    const options = {
+      method: 'POST',
+      body: data,
+    };
     if (name === '' || emailValue === '' || message === '') {
       setIsEmptyField(true);
     }
     if (name !== '' && emailValue !== '' && message !== '') {
-      await fetch(webhook, {
-        method: 'POST',
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((data) => {
+      await fetchFromUrl(
+        process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL,
+        options
+      )
+        .then(() => {
           setSuccess(true);
           setName('');
           setEmailValue('');
           setMessage('');
         })
-        .catch((error) => {
-          console.log('error', error, JSON.stringify(data));
+        .catch((err) => {
+          console.log('err', err);
           setSuccess(false);
         });
     }
