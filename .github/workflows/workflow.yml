@@ -16,7 +16,15 @@ jobs:
 
     env:
       REACT_APP_CONTACT_FORM_WEBHOOK_URL: ${{ secrets.REACT_APP_CONTACT_FORM_WEBHOOK_URL }}
-
+      REACT_APP_PAYMENT_PUBLISHABLE_KEY: ${{ secrets.REACT_APP_PAYMENT_PUBLISHABLE_KEY }}
+      REACT_APP_DONATION_PRICE_ID_ONCE_25: ${{ secrets.REACT_APP_DONATION_PRICE_ID_ONCE_25 }}
+      REACT_APP_DONATION_PRICE_ID_ONCE_50: ${{ secrets.REACT_APP_DONATION_PRICE_ID_ONCE_50 }}
+      REACT_APP_DONATION_PRICE_ID_ONCE_100: ${{ secrets.REACT_APP_DONATION_PRICE_ID_ONCE_100 }}
+      REACT_APP_DONATION_PRICE_ID_ONCE_500: ${{ secrets.REACT_APP_DONATION_PRICE_ID_ONCE_500 }}
+      REACT_APP_DONATION_PRICE_ID_REC_25: ${{ secrets.REACT_APP_DONATION_PRICE_ID_REC_25 }}
+      REACT_APP_DONATION_PRICE_ID_REC_50: ${{ secrets.REACT_APP_DONATION_PRICE_ID_REC_50 }}
+      REACT_APP_DONATION_PRICE_ID_REC_100: ${{ secrets.REACT_APP_DONATION_PRICE_ID_REC_100 }}
+      REACT_APP_DONATION_PRICE_ID_REC_500: ${{ secrets.REACT_APP_DONATION_PRICE_ID_REC_500 }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -25,6 +33,7 @@ jobs:
         run: |
           npm install
           echo "url: ${{env.REACT_APP_CONTACT_FORM_WEBHOOK_URL}}"
+          echo "payment: ${{env.REACT_APP_PAYMENT_PUBLISHABLE_KEY}}"
         working-directory: client
 
       - name: Build
