@@ -41,7 +41,7 @@ function Menu() {
             >
               <li onClick={handleClickClose}>
                 <Link to="/about" title="About">
-                  About
+                  Mission Statement
                 </Link>
               </li>
               <li onClick={handleClickClose}>
