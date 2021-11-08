@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/upskillfund.org/static/css/main.802295d0.chunk.css",
-    "main.js": "/upskillfund.org/static/js/main.b89c632a.chunk.js",
-    "main.js.map": "/upskillfund.org/static/js/main.b89c632a.chunk.js.map",
+    "main.js": "/upskillfund.org/static/js/main.2ae71d39.chunk.js",
+    "main.js.map": "/upskillfund.org/static/js/main.2ae71d39.chunk.js.map",
     "runtime-main.js": "/upskillfund.org/static/js/runtime-main.e6ba964d.js",
     "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.e6ba964d.js.map",
     "static/js/2.4ad54415.chunk.js": "/upskillfund.org/static/js/2.4ad54415.chunk.js",
@@ -29,6 +29,6 @@
     "static/js/runtime-main.e6ba964d.js",
     "static/js/2.4ad54415.chunk.js",
     "static/css/main.802295d0.chunk.css",
-    "static/js/main.b89c632a.chunk.js"
+    "static/js/main.2ae71d39.chunk.js"
   ]
 }
