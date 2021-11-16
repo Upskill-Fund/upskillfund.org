@@ -4,6 +4,7 @@ function SuccessDonation({ history }) {
   return (
     <div class="container d-flex flex-column align-items-center">
       <h1>Thank you for the generous donation </h1>
+      <h4> Please check your email.</h4>
       <button className="btn btn-primary" onClick={() => history.push('/')}>
         {' '}
         Go to Home
