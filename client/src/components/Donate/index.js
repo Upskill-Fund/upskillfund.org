@@ -2,7 +2,6 @@ import React from 'react';
 import DonateFrequency from './DonateFrequency';
 import DonateDonor from './DonateDonor';
 import DonateText from './DonateText';
-import { EmailValidation, PhoneNumberValidation } from '../../helper';
 import DonateCheckout from './DonateCheckout';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -27,7 +26,6 @@ function Donate() {
     false,
   ]);
   const [customActive, setCustomActive] = React.useState(false);
-  const [amountInvalid, setAmountInvalid] = React.useState(false);
 
   const handleMouseEvent = (event) => {
     event.preventDefault();
@@ -139,73 +137,47 @@ function Donate() {
   };
 
   //DonateDonor component related variables
-  const [isValidEmail, setIsValidEmail] = React.useState(true);
-  const emailErrorMessage = 'Enter valid email address';
-  const [isValidPhoneNumber, setIsValidPhoneNumber] = React.useState(true);
-  const phoneNumberErrorMessage = 'Enter valid phone number';
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [phone, setPhone] = React.useState('');
-  const [message, setMessage] = React.useState('');
+
+  const inputFields = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  };
+  const [values, setValues] = React.useState(inputFields);
   const [show, setShow] = React.useState(true);
   const [priceId, setPriceId] = React.useState('');
   const [paymentMode, setPaymentMode] = React.useState('');
   const handleInputChange = (event) => {
     event.preventDefault();
-    const element = event.target.id;
-    const value = event.target.value;
-    if (element === 'D-ACustom-label') {
-      if (value.match(/[a-z]/i)) {
-        //amount is invalid if it has alphabets
-        setAmountInvalid(true);
-      } else {
-        setAmountInvalid(false);
-        setAmountSelected(value);
-      }
-    } else if (element === 'donor-firstname') {
-      setFirstName(value);
-    } else if (element === 'donor-lastname') {
-      setLastName(value);
-    } else if (element === 'donor-email') {
-      setEmail(value);
-    } else if (element === 'donor-ph-number') {
-      setPhone(value);
-    } else if (element === 'donor-message') {
-      setMessage(value);
-    }
+    const { name, value } = event.target;
+    console.log('name,value', name, value);
+    setValues({
+      ...values,
+      [name]: value,
+    });
   };
 
-  const validateEmail = (event) => {
-    const value = event.target.value;
-    const emailValidity = EmailValidation(value);
-    if (emailValidity) {
-      // this is a valid email address
-
-      setIsValidEmail(true);
-    } else {
-      // invalid email, show an error to the user.
-      setIsValidEmail(false);
-    }
-  };
-  const validatePhoneNumber = (event) => {
-    const value = event.target.value;
-    const phNumberValidity = PhoneNumberValidation(value);
-    if (phNumberValidity || value === '') {
-      setIsValidPhoneNumber(true);
-    } else {
-      setIsValidPhoneNumber(false);
-    }
-  };
   const handleDonation = (event) => {
     event.preventDefault();
-    const frequency = frequencySelected === 'one-time' ? 'ONCE' : 'REC';
-    setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
+    const form = event.currentTarget;
+    form.classList.add('was-validated');
+    console.log('inside form submission', form.checkValidity());
+    console.log('values', values);
+    if (form.checkValidity() === false) {
+      console.log('inside if');
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      const frequency = frequencySelected === 'one-time' ? 'ONCE' : 'REC';
+      setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
 
-    setPaymentMode(
-      frequencySelected === 'one-time' ? 'payment' : 'subscription'
-    );
-    setShow(false);
+      setPaymentMode(
+        frequencySelected === 'one-time' ? 'payment' : 'subscription'
+      );
+      setShow(false);
+    }
   };
   const handleDonationCancel = (event) => {
     event.preventDefault();
@@ -238,7 +210,11 @@ function Donate() {
 
   return (
     <div className="donate-container container">
-      <form onSubmit={handleDonation} className={show ? 'show' : 'hide'}>
+      <form
+        onSubmit={handleDonation}
+        className={`${show ? 'show' : 'hide'} needs-validation`}
+        noValidate
+      >
         <DonateText />
         <DonateFrequency
           donateFrequencyList={donateFrequencyList}
@@ -250,29 +226,21 @@ function Donate() {
           isAmountHovered={isAmountHovered}
           isAmountActive={isAmountActive}
           customActive={customActive}
-          amountInvalid={amountInvalid}
           handleInputChange={handleInputChange}
           amountSelected={amountSelected}
         />
-        <DonateDonor
-          handleInputChange={handleInputChange}
-          validateEmail={validateEmail}
-          isValidEmail={isValidEmail}
-          emailErrorMessage={emailErrorMessage}
-          validatePhoneNumber={validatePhoneNumber}
-          isValidPhoneNumber={isValidPhoneNumber}
-          phoneNumberErrorMessage={phoneNumberErrorMessage}
-        />
+        <DonateDonor handleInputChange={handleInputChange} />
       </form>
       <DonateCheckout
         show={show}
         frequencySelected={frequencySelected}
         amountSelected={amountSelected}
-        firstName={firstName}
-        lastName={lastName}
-        phone={phone}
-        email={email}
-        message={message}
+        // firstName={values.firstName}
+        // lastName={values.lastName}
+        // phone={values.phone}
+        // email={values.email}
+        // message={values.message}
+        formValues={values}
         handleDonationCancel={handleDonationCancel}
         donationCheckout={donationCheckout}
       />

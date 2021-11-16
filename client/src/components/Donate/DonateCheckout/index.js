@@ -5,10 +5,7 @@ function DonateCheckout(props) {
     show,
     amountSelected,
     frequencySelected,
-    firstName,
-    lastName,
-    email,
-    phone,
+    formValues,
     donationCheckout,
     handleDonationCancel,
   } = props;
@@ -29,19 +26,23 @@ function DonateCheckout(props) {
           </h5>
           <p className="mr-4 mb-0">
             {`FirstName: `}
-            <span style={{ color: 'green' }}>{`${firstName}`}</span>
+            <span style={{ color: 'green' }}>{`${formValues.firstName}`}</span>
           </p>
           <p className="mr-4 mb-0">
             {`LastName: `}
-            <span style={{ color: 'green' }}>{`${lastName}`}</span>
+            <span style={{ color: 'green' }}>{`${formValues.lastName}`}</span>
           </p>
           <p className="mr-4 mb-0">
             {`Email `}
-            <span style={{ color: 'green' }}>{`${email}`}</span>
+            <span style={{ color: 'green' }}>{`${formValues.email}`}</span>
           </p>
           <p className="mr-4 mb-0">
             {`Phone Number: `}
-            <span style={{ color: 'green' }}>{`${phone}`}</span>
+            <span style={{ color: 'green' }}>{`${formValues.phone}`}</span>
+          </p>
+          <p className="mr-4 mb-0">
+            {`Message: `}
+            <span style={{ color: 'green' }}>{`${formValues.message}`}</span>
           </p>
         </div>
         <div className="w-100 d-flex justify-content-center">

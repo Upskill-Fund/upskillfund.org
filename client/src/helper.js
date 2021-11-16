@@ -19,7 +19,7 @@ export const PhoneNumberValidation = (value) => {
 
 export async function fetchFromUrl(url, opts) {
   const { method, body } = { body: null, ...opts };
-  await fetch(url, {
+  return await fetch(url, {
     method,
     ...(body && { body: JSON.stringify(body) }),
     header: {
@@ -27,8 +27,6 @@ export async function fetchFromUrl(url, opts) {
     },
   })
     .then((res) => res.json())
-    .then((data) => {
-      return data;
-    })
+    .then((data) => data)
     .catch((error) => error);
 }
