@@ -2,22 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Menu() {
-  const [isClicked, setIsClicked] = React.useState(false);
-  const handleClickClose = (e) => {
-    e.preventDefault();
-    setIsClicked(true);
-    console.log('isclicked true');
-  };
-  const handleClickOpen = (e) => {
-    e.preventDefault();
-    setIsClicked(false);
-    console.log('isclicked false');
-  };
+  // const [isClicked, setIsClicked] = React.useState(false);
+  // const handleClickClose = (e) => {
+  //   e.preventDefault();
+  //   setIsClicked(true);
+  //   console.log('isclicked true');
+  // };
+  // const handleClickOpen = (e) => {
+  //   e.preventDefault();
+  //   setIsClicked(false);
+  //   console.log('isclicked false');
+  // };
   return (
     <div className="navbar-menu-collapse navbar-menu ">
       <div className=" navbar-menu-collapse navbar-menu ">
         <ul className="nav navbar-menulist ">
-          <li
+          {/*<li
             className={`navbar-menulist-item dropdown `}
             onClick={handleClickClose}
             onMouseEnter={handleClickOpen}
@@ -33,7 +33,7 @@ function Menu() {
             >
               About
             </Link>
-            <ul
+             <ul
               className={`dropdown-menu ${
                 isClicked ? 'hide-dropdown' : 'show-dropdown'
               }`}
@@ -49,7 +49,7 @@ function Menu() {
                   Manifesto
                 </Link>
               </li>
-            </ul>
+            </ul> 
           </li>
           <li className="navbar-menulist-item">
             <Link to="/investments" title="investments">
@@ -59,6 +59,16 @@ function Menu() {
           <li className="navbar-menulist-item">
             <Link to="/funds" title="funds">
               Funds
+            </Link>
+          </li>*/}
+          <li className="navbar-menulist-item">
+            <Link to="/" title="home">
+              Home
+            </Link>
+          </li>
+          <li className="navbar-menulist-item">
+            <Link to="/about" title="about">
+              Mission Statement
             </Link>
           </li>
           <li className="navbar-menulist-item">
