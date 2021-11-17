@@ -24,18 +24,14 @@ function Contact() {
   };
 
   const formSubmission = async (event) => {
-    console.log('values', values);
     event.preventDefault();
     const form = event.currentTarget;
     form.classList.add('was-validated');
-    console.log('inside form submission', form.checkValidity());
     if (form.checkValidity() === false) {
-      console.log('inside if');
       event.preventDefault();
       event.stopPropagation();
       if (values.name === '' || values.email === '') {
         setIsEmptyField(true);
-        console.log('inside empty fielsd');
       } else if (values.name !== '' && values.email !== '') {
         setIsEmptyField(false);
       }
@@ -46,7 +42,6 @@ function Contact() {
       };
       if (values.name === '' || values.email === '') {
         setIsEmptyField(true);
-        console.log('inside empty fielsd');
       } else if (values.name !== '' && values.email !== '') {
         await fetchFromUrl(
           process.env.REACT_APP_CONTACT_FORM_WEBHOOK_URL,

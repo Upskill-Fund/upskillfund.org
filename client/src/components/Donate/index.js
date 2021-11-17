@@ -2,8 +2,8 @@ import React from 'react';
 import DonateFrequency from './DonateFrequency';
 import DonateDonor from './DonateDonor';
 import DonateText from './DonateText';
-import DonateCheckout from './DonateCheckout';
-import { loadStripe } from '@stripe/stripe-js';
+// import DonateSubmit from './DonateSubmit';
+import { useHistory } from 'react-router-dom';
 
 function Donate() {
   //DonteFrequency component related variables
@@ -136,6 +136,14 @@ function Donate() {
     }
   };
 
+  React.useEffect(() => {
+    const frequency = frequencySelected === 'one-time' ? 'ONCE' : 'REC';
+    setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
+
+    setPaymentMode(
+      frequencySelected === 'one-time' ? 'payment' : 'subscription'
+    );
+  }, [amountSelected, frequencySelected]);
   //DonateDonor component related variables
 
   const inputFields = {
@@ -146,13 +154,13 @@ function Donate() {
     message: '',
   };
   const [values, setValues] = React.useState(inputFields);
-  const [show, setShow] = React.useState(true);
   const [priceId, setPriceId] = React.useState('');
   const [paymentMode, setPaymentMode] = React.useState('');
+  const history = useHistory();
+
   const handleInputChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    console.log('name,value', name, value);
     setValues({
       ...values,
       [name]: value,
@@ -163,58 +171,33 @@ function Donate() {
     event.preventDefault();
     const form = event.currentTarget;
     form.classList.add('was-validated');
-    console.log('inside form submission', form.checkValidity());
-    console.log('values', values);
     if (form.checkValidity() === false) {
-      console.log('inside if');
       event.preventDefault();
       event.stopPropagation();
     } else {
-      const frequency = frequencySelected === 'one-time' ? 'ONCE' : 'REC';
-      setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
-
-      setPaymentMode(
-        frequencySelected === 'one-time' ? 'payment' : 'subscription'
-      );
-      setShow(false);
+      history.push({
+        pathname: '/donateCheckout',
+        search:
+          '?' +
+          new URLSearchParams({
+            frequencySelected: frequencySelected,
+            amountSelected: amountSelected,
+            // formValues: values,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            email: values.email,
+            phone: values.phone,
+            message: values.message,
+            priceId: priceId,
+            paymentMode: paymentMode,
+          }),
+      });
     }
-  };
-  const handleDonationCancel = (event) => {
-    event.preventDefault();
-    setShow(true);
-  };
-
-  const stripePromise = loadStripe(
-    process.env.REACT_APP_PAYMENT_PUBLISHABLE_KEY
-  );
-
-  const donationCheckout = async () => {
-    const stripe = await stripePromise;
-    let domain = window.location.href.replace(/[^/]*$/, '');
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        {
-          price: process.env[priceId], // Replace with the ID of your price
-          quantity: 1,
-        },
-      ],
-      mode: paymentMode,
-      successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
-      cancelUrl: domain + 'canceled',
-    });
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
-    if (error) console.log('error');
   };
 
   return (
     <div className="donate-container container">
-      <form
-        onSubmit={handleDonation}
-        className={`${show ? 'show' : 'hide'} needs-validation`}
-        noValidate
-      >
+      <form onSubmit={handleDonation} className={`needs-validation`} noValidate>
         <DonateText />
         <DonateFrequency
           donateFrequencyList={donateFrequencyList}
@@ -231,19 +214,6 @@ function Donate() {
         />
         <DonateDonor handleInputChange={handleInputChange} />
       </form>
-      <DonateCheckout
-        show={show}
-        frequencySelected={frequencySelected}
-        amountSelected={amountSelected}
-        // firstName={values.firstName}
-        // lastName={values.lastName}
-        // phone={values.phone}
-        // email={values.email}
-        // message={values.message}
-        formValues={values}
-        handleDonationCancel={handleDonationCancel}
-        donationCheckout={donationCheckout}
-      />
     </div>
   );
 }
