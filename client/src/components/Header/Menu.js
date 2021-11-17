@@ -68,7 +68,7 @@ function Menu() {
           </li>
           <li className="navbar-menulist-item">
             <Link to="/about" title="about">
-              Mission Statement
+              About
             </Link>
           </li>
           <li className="navbar-menulist-item">

@@ -1,10 +1,10 @@
 import React from 'react';
-import helpingHands from '../../images/helping hands.jpeg';
+import image from '../../images/destiny.jpg';
 function MissionStatement() {
   return (
     <div className="container mission-stmt-container row">
       <div className="mission-box col-12 col-sm-12 col-md-6">
-        <img className="image" src={helpingHands} alt="helping hand" />
+        <img className="image" src={image} alt="helping hand" />
       </div>
       <div className="mission-box col-12 col-sm-12 col-md-6">
         <p className="mission-stmt">
