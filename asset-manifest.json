@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/upskillfund.org/static/css/main.d71c27ec.chunk.css",
-    "main.js": "/upskillfund.org/static/js/main.6db746cc.chunk.js",
-    "main.js.map": "/upskillfund.org/static/js/main.6db746cc.chunk.js.map",
+    "main.js": "/upskillfund.org/static/js/main.dd30e6a7.chunk.js",
+    "main.js.map": "/upskillfund.org/static/js/main.dd30e6a7.chunk.js.map",
     "runtime-main.js": "/upskillfund.org/static/js/runtime-main.823d144a.js",
     "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.823d144a.js.map",
-    "static/js/2.2127294e.chunk.js": "/upskillfund.org/static/js/2.2127294e.chunk.js",
-    "static/js/2.2127294e.chunk.js.map": "/upskillfund.org/static/js/2.2127294e.chunk.js.map",
+    "static/js/2.4ce015a5.chunk.js": "/upskillfund.org/static/js/2.4ce015a5.chunk.js",
+    "static/js/2.4ce015a5.chunk.js.map": "/upskillfund.org/static/js/2.4ce015a5.chunk.js.map",
     "static/js/3.87db0492.chunk.js": "/upskillfund.org/static/js/3.87db0492.chunk.js",
     "static/js/3.87db0492.chunk.js.map": "/upskillfund.org/static/js/3.87db0492.chunk.js.map",
     "index.html": "/upskillfund.org/index.html",
     "static/css/main.d71c27ec.chunk.css.map": "/upskillfund.org/static/css/main.d71c27ec.chunk.css.map",
-    "static/js/2.2127294e.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.2127294e.chunk.js.LICENSE.txt",
+    "static/js/2.4ce015a5.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.4ce015a5.chunk.js.LICENSE.txt",
     "static/media/Logo Full Color.8124f0b8.png": "/upskillfund.org/static/media/Logo Full Color.8124f0b8.png",
     "static/media/doctor.914d7882.svg": "/upskillfund.org/static/media/doctor.914d7882.svg",
     "static/media/helping hands.5f2b46ff.jpeg": "/upskillfund.org/static/media/helping hands.5f2b46ff.jpeg",
@@ -20,15 +20,14 @@
     "static/media/mixer.d532d5c1.svg": "/upskillfund.org/static/media/mixer.d532d5c1.svg",
     "static/media/prohibition.7bde7dd2.svg": "/upskillfund.org/static/media/prohibition.7bde7dd2.svg",
     "static/media/salary.e6a4e09f.svg": "/upskillfund.org/static/media/salary.e6a4e09f.svg",
-    "static/media/search-icon.286bf0c7.png": "/upskillfund.org/static/media/search-icon.286bf0c7.png",
     "static/media/sewing-machine.b881f2cc.svg": "/upskillfund.org/static/media/sewing-machine.b881f2cc.svg",
     "static/media/skills.1232c81a.svg": "/upskillfund.org/static/media/skills.1232c81a.svg",
     "static/media/women-career.353f7a9f.jpeg": "/upskillfund.org/static/media/women-career.353f7a9f.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.823d144a.js",
-    "static/js/2.2127294e.chunk.js",
+    "static/js/2.4ce015a5.chunk.js",
     "static/css/main.d71c27ec.chunk.css",
-    "static/js/main.6db746cc.chunk.js"
+    "static/js/main.dd30e6a7.chunk.js"
   ]
 }
