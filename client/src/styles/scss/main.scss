@@ -1,8 +1,6 @@
 /*
         Main SCSS
 */
-// bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 // Base
 @import 'base/variables';
@@ -27,3 +25,5 @@
 
 // Layout
 @import 'layout/responsive';
+// bootstrap
+@import '~bootstrap/scss/bootstrap';

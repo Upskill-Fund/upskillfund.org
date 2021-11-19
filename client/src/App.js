@@ -15,11 +15,11 @@ import CancelledDonation from './components/CancelledDonation';
 import DonateCheckout from './components/Donate/DonateCheckout';
 function App() {
   return (
-    <Router>
-      <Header />
-      {/* start of Homepage Main Content */}
-      <div id="mainContainer">
-        <div className="content">
+    <div>
+      <Router>
+        <Header />
+        {/* start of Homepage Main Content */}
+        <div>
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/upskillfund.org" component={Home} />
@@ -35,9 +35,10 @@ function App() {
           </Switch>
         </div>
         <Footer />
-      </div>
-      {/* End of Homepage Main Content */}
-    </Router>
+
+        {/* End of Homepage Main Content */}
+      </Router>
+    </div>
   );
 }
 

@@ -1,25 +1,25 @@
-#mainContainer {
-  margin-top: 81px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  min-height: calc(100vh - 220px);
-}
+// #mainContainer {
+//   // margin-top: 81px;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
+// .content {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   width: 100%;
+//   height: 100%;
+//   margin: 0;
+//   // min-height: calc(100vh - 220px);
+// }
 .content-section {
   position: relative;
   width: 100%;
   overflow: hidden;
   padding: 80px 0px;
-  min-height: 200px;
+  // min-height: 200px;
 
   &.content-cover {
     height: 500px;
