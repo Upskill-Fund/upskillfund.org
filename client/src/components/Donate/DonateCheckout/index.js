@@ -43,7 +43,9 @@ function DonateCheckout(props) {
     if (error) console.log('error');
   };
   return (
-    <div className={`donate-checkout-container `}>
+    <div
+      className={`donate-checkout-container d-flex flex-column align-items-center justify-content-center`}
+    >
       <div className="container d-flex flex-column align-items-center justify-content-center">
         <h2 style={{ marginBottom: '30px' }}>Checkout summary</h2>
 
