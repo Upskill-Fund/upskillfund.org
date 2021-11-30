@@ -44,7 +44,7 @@ function Footer() {
           <div className="col-12 col-md-2 mb-5">
             <h4>Legal</h4>
             <p>
-              <Link to="/">Privacy</Link>
+              <Link to="/privacypolicy">Privacy</Link>
             </p>
           </div>
         </div>
