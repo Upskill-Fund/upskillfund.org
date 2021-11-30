@@ -13,6 +13,7 @@ import Donate from './components/Donate';
 import SuccessDonation from './components/SuccessDonation';
 import CancelledDonation from './components/CancelledDonation';
 import DonateCheckout from './components/Donate/DonateCheckout';
+import PrivacyPolicy from './components/PrivacyPolicy';
 function App() {
   return (
     <div>
@@ -32,6 +33,7 @@ function App() {
             <Route path="/donateCheckout" component={DonateCheckout} />
             <Route path="/success" component={SuccessDonation} />
             <Route path="/canceled" component={CancelledDonation} />
+            <Route path="/privacypolicy" component={PrivacyPolicy} />
           </Switch>
         </div>
         <Footer />
