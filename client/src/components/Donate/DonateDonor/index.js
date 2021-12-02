@@ -3,7 +3,7 @@ import Input from '../../reusable/Input';
 import TextArea from '../../reusable/TextArea';
 
 function DonateDonor(props) {
-  const { handleInputChange } = props;
+  const { handleDonorInputChange } = props;
 
   return (
     <section className="block-section">
@@ -19,7 +19,7 @@ function DonateDonor(props) {
                   name="firstName"
                   type="text"
                   aria="donorFirstName"
-                  updateField={handleInputChange}
+                  updateField={handleDonorInputChange}
                   required={true}
                 />
               </div>
@@ -32,7 +32,7 @@ function DonateDonor(props) {
                   name="lastName"
                   type="text"
                   aria="donorLastName"
-                  updateField={handleInputChange}
+                  updateField={handleDonorInputChange}
                   required={true}
                 />
               </div>
@@ -50,7 +50,7 @@ function DonateDonor(props) {
                   type="email"
                   aria="donorEmail"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  updateField={handleInputChange}
+                  updateField={handleDonorInputChange}
                   required={true}
                 />
               </div>
@@ -68,7 +68,7 @@ function DonateDonor(props) {
                   type="text"
                   aria="donorPhoneNumber"
                   pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
-                  updateField={handleInputChange}
+                  updateField={handleDonorInputChange}
                 />
               </div>
             </div>
@@ -82,7 +82,7 @@ function DonateDonor(props) {
                   for="donor-message"
                   labelText="Message"
                   name="message"
-                  updateField={handleInputChange}
+                  updateField={handleDonorInputChange}
                 />
               </div>
             </div>

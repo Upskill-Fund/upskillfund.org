@@ -11,7 +11,7 @@ function DonateCheckout(props) {
   const {
     amountSelected,
     frequencySelected,
-    // formValues,
+    quantity,
     firstName,
     lastName,
     email,
@@ -21,32 +21,45 @@ function DonateCheckout(props) {
     paymentMode,
   } = summary;
 
+  const [isError, setIsError] = React.useState(false);
+
   const donationCheckout = async () => {
     const stripe = await stripePromise;
     let domain = window.location.href.replace(/[^/]*$/, '');
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        {
-          price: process.env[priceId], // Replace with the ID of your price
-          quantity: 1,
-        },
-      ],
-      mode: paymentMode,
-      successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
-      cancelUrl:
-        domain +
-        `donateCheckout?firstName=${firstName}&amountSelected=${amountSelected}&frequencySelected=${frequencySelected}&lastName=${lastName}&email=${email}&phone=${phone}&message=${message}&priceId=${priceId}&paymentMode=${paymentMode}`,
-    });
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
-    if (error) console.log('error');
+    try {
+      await stripe.redirectToCheckout({
+        lineItems: [
+          {
+            price: process.env[priceId], // Replace with the ID of your price
+            quantity: parseInt(quantity),
+          },
+        ],
+        mode: paymentMode,
+        successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
+        cancelUrl:
+          domain +
+          `donateCheckout?firstName=${firstName}&amountSelected=${amountSelected}&frequencySelected=${frequencySelected}&lastName=${lastName}&email=${email}&phone=${phone}&message=${message}&priceId=${priceId}&paymentMode=${paymentMode}`,
+      });
+    } catch (error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `error.message`.
+      console.log('error', error.message);
+      setIsError(true);
+    }
   };
   return (
     <div
       className={`donate-checkout-container d-flex flex-column align-items-center justify-content-center`}
     >
       <div className="container d-flex flex-column align-items-center justify-content-center">
+        {isError ? (
+          <p style={{ color: 'red' }}>
+            Oops! Something went wrong. Please try again.
+          </p>
+        ) : (
+          ''
+        )}
         <h2 style={{ marginBottom: '30px' }}>Checkout summary</h2>
 
         <div className="d-flex flex-column justify-content-start mb-4">
@@ -88,12 +101,7 @@ function DonateCheckout(props) {
             Submit
           </button>
           <Link to="/donate">
-            <button
-              className="btn btn-danger ml-4"
-              // onClick={handleDonationCancel}
-            >
-              Cancel
-            </button>
+            <button className="btn btn-danger ml-4">Cancel</button>
           </Link>
         </div>
       </div>

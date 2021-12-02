@@ -5,7 +5,6 @@ import AnimationSection from './AnimationSection';
 function Home() {
   const [animationComplete, setAnimationComplete] = React.useState(false);
   const [counter, setCounter] = React.useState(1);
-  //let complete = false;
   React.useEffect(() => {
     setTimeout(handleAnimation, 2000);
   });

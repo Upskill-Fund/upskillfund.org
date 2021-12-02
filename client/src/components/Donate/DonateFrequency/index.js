@@ -11,6 +11,9 @@ function DonateFrequency(props) {
     isAmountHovered,
     isAmountActive,
     amountInvalid,
+    amountSelected,
+    customActive,
+    handleCustomAmountInputChange,
   } = props;
 
   return (
@@ -106,7 +109,7 @@ function DonateFrequency(props) {
                     </label>
                   </li>
                 ))}
-                {/* <li
+                <li
                   className="donation-amount-list-value-box normal"
                   style={{
                     color: 'rgb(0,0,0)',
@@ -126,10 +129,10 @@ function DonateFrequency(props) {
                       name="custom-amount"
                       value={customActive ? amountSelected : ``}
                       placeholder="amount"
-                      onChange={handleInputChange}
+                      onChange={handleCustomAmountInputChange}
                     ></input>
                   </label>
-                </li> */}
+                </li>
               </ul>
             }
             {amountInvalid ? (

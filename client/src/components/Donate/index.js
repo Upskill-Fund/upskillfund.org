@@ -2,7 +2,6 @@ import React from 'react';
 import DonateFrequency from './DonateFrequency';
 import DonateDonor from './DonateDonor';
 import DonateText from './DonateText';
-// import DonateSubmit from './DonateSubmit';
 import { useHistory } from 'react-router-dom';
 
 function Donate() {
@@ -26,6 +25,7 @@ function Donate() {
     false,
   ]);
   const [customActive, setCustomActive] = React.useState(false);
+  const [quantity, setQuantity] = React.useState(1);
 
   const handleMouseEvent = (event) => {
     event.preventDefault();
@@ -132,18 +132,36 @@ function Donate() {
     } else if (label === 'D-ACustom-label') {
       setIsAmountActive([false, false, false, false]);
       setIsAmountHovered([false, false, false, false]);
+      setAmountSelected('');
       setCustomActive(true);
+    }
+  };
+
+  const handleCustomAmountInputChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    if (customActive === true && name === 'custom-amount') {
+      setAmountSelected(value);
     }
   };
 
   React.useEffect(() => {
     const frequency = frequencySelected === 'one-time' ? 'ONCE' : 'REC';
-    setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
-
     setPaymentMode(
       frequencySelected === 'one-time' ? 'payment' : 'subscription'
     );
-  }, [amountSelected, frequencySelected]);
+    if (customActive === false) {
+      setPriceId(`REACT_APP_DONATION_PRICE_ID_${frequency}_${amountSelected}`);
+    } else {
+      setQuantity(amountSelected);
+      setPriceId(
+        `REACT_APP_DONATION_PRICE_ID_${
+          frequencySelected === 'one-time' ? 'ONCE' : 'REC'
+        }_CUSTOM`
+      );
+    }
+  }, [amountSelected, frequencySelected, customActive]);
+
   //DonateDonor component related variables
 
   const inputFields = {
@@ -158,7 +176,7 @@ function Donate() {
   const [paymentMode, setPaymentMode] = React.useState('');
   const history = useHistory();
 
-  const handleInputChange = (event) => {
+  const handleDonorInputChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
     setValues({
@@ -182,7 +200,7 @@ function Donate() {
           new URLSearchParams({
             frequencySelected: frequencySelected,
             amountSelected: amountSelected,
-            // formValues: values,
+            quantity: quantity,
             firstName: values.firstName,
             lastName: values.lastName,
             email: values.email,
@@ -209,10 +227,10 @@ function Donate() {
           isAmountHovered={isAmountHovered}
           isAmountActive={isAmountActive}
           customActive={customActive}
-          handleInputChange={handleInputChange}
+          handleCustomAmountInputChange={handleCustomAmountInputChange}
           amountSelected={amountSelected}
         />
-        <DonateDonor handleInputChange={handleInputChange} />
+        <DonateDonor handleDonorInputChange={handleDonorInputChange} />
       </form>
     </div>
   );
