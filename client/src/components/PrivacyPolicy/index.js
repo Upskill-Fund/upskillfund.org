@@ -26,11 +26,11 @@ function PrivacyPolicy() {
           <p>
             Upskill-Fund, LLC. (“Company” or “we” or “us” or “our”) respects the
             privacy of its users (“user” or “you”) that use our website located
-            at www.upskill-fund.org, including other media forms, media
-            channels, mobile website or mobile application related or connected
-            thereto (collectively, the “Website”). The following Company privacy
-            policy (“Privacy Policy”) is designed to inform you, as a user of
-            the Website, about the types of information that Company may gather
+            at www.upskillfund.org, including other media forms, media channels,
+            mobile website or mobile application related or connected thereto
+            (collectively, the “Website”). The following Company privacy policy
+            (“Privacy Policy”) is designed to inform you, as a user of the
+            Website, about the types of information that Company may gather
             about or collect from you in connection with your use of the
             Website. It also is intended to explain the conditions under which
             Company uses and discloses that information, and your rights in
@@ -492,9 +492,7 @@ function PrivacyPolicy() {
             Attn: Privacy Officer
             <br /> 1612 Westgate Circle Suite 222. Brentwood, Tn 37027 <br />
             Email:
-            <a href="mailto:privacy@upskill-fund.org">
-              privacy@upskill-fund.org
-            </a>
+            <a href="mailto:privacy@upskillfund.org">privacy@upskillfund.org</a>
           </p>
         </div>
       </div>
