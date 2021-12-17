@@ -118,7 +118,7 @@ function Contact() {
               value={values.email}
               type="email"
               aria="contactEmail"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               updateField={updateField}
               required={true}
             />
