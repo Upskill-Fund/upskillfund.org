@@ -26,7 +26,7 @@ function Footer() {
           <div className="col-12 col-md-2 mb-5">
             <h4>About</h4>
             <p>
-              <Link to="/about">Mission Statement</Link>
+              <Link to="/about">Mission</Link>
             </p>
           </div>
           <div className="col-12 col-md-2 mb-5">
