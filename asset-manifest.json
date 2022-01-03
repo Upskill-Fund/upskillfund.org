@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/upskillfund.org/static/css/main.93e08e9d.chunk.css",
-    "main.js": "/upskillfund.org/static/js/main.6a36960a.chunk.js",
-    "main.js.map": "/upskillfund.org/static/js/main.6a36960a.chunk.js.map",
+    "main.js": "/upskillfund.org/static/js/main.9f85e492.chunk.js",
+    "main.js.map": "/upskillfund.org/static/js/main.9f85e492.chunk.js.map",
     "runtime-main.js": "/upskillfund.org/static/js/runtime-main.6d4f6abc.js",
     "runtime-main.js.map": "/upskillfund.org/static/js/runtime-main.6d4f6abc.js.map",
-    "static/js/2.0edc2f98.chunk.js": "/upskillfund.org/static/js/2.0edc2f98.chunk.js",
-    "static/js/2.0edc2f98.chunk.js.map": "/upskillfund.org/static/js/2.0edc2f98.chunk.js.map",
+    "static/js/2.842c7d58.chunk.js": "/upskillfund.org/static/js/2.842c7d58.chunk.js",
+    "static/js/2.842c7d58.chunk.js.map": "/upskillfund.org/static/js/2.842c7d58.chunk.js.map",
     "static/js/3.ae2d9969.chunk.js": "/upskillfund.org/static/js/3.ae2d9969.chunk.js",
     "static/js/3.ae2d9969.chunk.js.map": "/upskillfund.org/static/js/3.ae2d9969.chunk.js.map",
     "index.html": "/upskillfund.org/index.html",
     "static/css/main.93e08e9d.chunk.css.map": "/upskillfund.org/static/css/main.93e08e9d.chunk.css.map",
-    "static/js/2.0edc2f98.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.0edc2f98.chunk.js.LICENSE.txt",
+    "static/js/2.842c7d58.chunk.js.LICENSE.txt": "/upskillfund.org/static/js/2.842c7d58.chunk.js.LICENSE.txt",
     "static/media/Logo Full Color.8124f0b8.png": "/upskillfund.org/static/media/Logo Full Color.8124f0b8.png",
     "static/media/Logo White.9753f125.png": "/upskillfund.org/static/media/Logo White.9753f125.png",
     "static/media/destiny.a993bbce.jpg": "/upskillfund.org/static/media/destiny.a993bbce.jpg",
@@ -27,8 +27,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6d4f6abc.js",
-    "static/js/2.0edc2f98.chunk.js",
+    "static/js/2.842c7d58.chunk.js",
     "static/css/main.93e08e9d.chunk.css",
-    "static/js/main.6a36960a.chunk.js"
+    "static/js/main.9f85e492.chunk.js"
   ]
 }
