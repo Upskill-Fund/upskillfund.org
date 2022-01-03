@@ -2,9 +2,12 @@ import React from 'react';
 import DonateFrequency from './DonateFrequency';
 import DonateDonor from './DonateDonor';
 import DonateText from './DonateText';
-import { useHistory } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
 
 function Donate() {
+  const stripePromise = loadStripe(
+    process.env.REACT_APP_PAYMENT_PUBLISHABLE_KEY
+  );
   //DonteFrequency component related variables
   const donateFrequencyList = ['one-time', 'monthly'];
   const [isActive, setIsActive] = React.useState([true, false]);
@@ -174,7 +177,6 @@ function Donate() {
   const [values, setValues] = React.useState(inputFields);
   const [priceId, setPriceId] = React.useState('');
   const [paymentMode, setPaymentMode] = React.useState('');
-  const history = useHistory();
 
   const handleDonorInputChange = (event) => {
     event.preventDefault();
@@ -185,31 +187,30 @@ function Donate() {
     });
   };
 
-  const handleDonation = (event) => {
+  const [isError, setIsError] = React.useState(false);
+
+  const handleDonation = async (event) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    form.classList.add('was-validated');
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      history.push({
-        pathname: '/donateCheckout',
-        search:
-          '?' +
-          new URLSearchParams({
-            frequencySelected: frequencySelected,
-            amountSelected: amountSelected,
-            quantity: quantity,
-            firstName: values.firstName,
-            lastName: values.lastName,
-            email: values.email,
-            phone: values.phone,
-            message: values.message,
-            priceId: priceId,
-            paymentMode: paymentMode,
-          }),
+    const stripe = await stripePromise;
+    let domain = window.location.href.replace(/[^/]*$/, '');
+    try {
+      await stripe.redirectToCheckout({
+        lineItems: [
+          {
+            price: process.env[priceId], // Replace with the ID of your price
+            quantity: parseInt(quantity),
+          },
+        ],
+        mode: paymentMode,
+        successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
+        cancelUrl: domain + 'donate',
       });
+    } catch (error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `error.message`.
+      console.log('error', error.message);
+      setIsError(true);
     }
   };
 
@@ -230,6 +231,13 @@ function Donate() {
           handleCustomAmountInputChange={handleCustomAmountInputChange}
           amountSelected={amountSelected}
         />
+        {isError ? (
+          <p style={{ color: 'red' }}>
+            Oops! Something went wrong. Please try again.
+          </p>
+        ) : (
+          ''
+        )}
         <DonateDonor handleDonorInputChange={handleDonorInputChange} />
       </form>
     </div>
