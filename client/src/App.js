@@ -12,7 +12,6 @@ import Manifesto from './components/Manifesto';
 import Donate from './components/Donate';
 import SuccessDonation from './components/SuccessDonation';
 import CancelledDonation from './components/CancelledDonation';
-import DonateCheckout from './components/Donate/DonateCheckout';
 import PrivacyPolicy from './components/PrivacyPolicy';
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
             <Route path="/funds" component={Funds} />
             <Route path="/contact" component={Contact} />
             <Route path="/donate" component={Donate} />
-            <Route path="/donateCheckout" component={DonateCheckout} />
             <Route path="/success" component={SuccessDonation} />
             <Route path="/canceled" component={CancelledDonation} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
