@@ -13,28 +13,31 @@ import Donate from './components/Donate';
 import SuccessDonation from './components/SuccessDonation';
 import CancelledDonation from './components/CancelledDonation';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import ScrollIntoView from './components/reusable/ScrollIntoView';
 function App() {
   return (
     <div>
       <Router>
-        <Header />
-        {/* start of Homepage Main Content */}
-        <div>
-          <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/upskillfund.org" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/investments" component={Investments} />
-            <Route path="/manifesto" component={Manifesto} />
-            <Route path="/funds" component={Funds} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/donate" component={Donate} />
-            <Route path="/success" component={SuccessDonation} />
-            <Route path="/canceled" component={CancelledDonation} />
-            <Route path="/privacypolicy" component={PrivacyPolicy} />
-          </Switch>
-        </div>
-        <Footer />
+        <ScrollIntoView>
+          <Header />
+          {/* start of Homepage Main Content */}
+          <div>
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/upskillfund.org" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/investments" component={Investments} />
+              <Route path="/manifesto" component={Manifesto} />
+              <Route path="/funds" component={Funds} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/donate" component={Donate} />
+              <Route path="/success" component={SuccessDonation} />
+              <Route path="/canceled" component={CancelledDonation} />
+              <Route path="/privacypolicy" component={PrivacyPolicy} />
+            </Switch>
+          </div>
+          <Footer />
+        </ScrollIntoView>
 
         {/* End of Homepage Main Content */}
       </Router>
