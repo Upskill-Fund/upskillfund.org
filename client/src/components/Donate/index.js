@@ -191,26 +191,35 @@ function Donate() {
 
   const handleDonation = async (event) => {
     event.preventDefault();
-    const stripe = await stripePromise;
-    let domain = window.location.href.replace(/[^/]*$/, '');
-    try {
-      await stripe.redirectToCheckout({
-        lineItems: [
-          {
-            price: process.env[priceId], // Replace with the ID of your price
-            quantity: parseInt(quantity),
-          },
-        ],
-        mode: paymentMode,
-        successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
-        cancelUrl: domain + 'donate',
-      });
-    } catch (error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `error.message`.
-      console.log('error', error.message);
-      setIsError(true);
+    const form = event.currentTarget;
+    form.classList.add('was-validated');
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      const stripe = await stripePromise;
+      let domain = window.location.href.replace(/[^/]*$/, '');
+      console.log('domain', domain);
+      try {
+        await stripe.redirectToCheckout({
+          lineItems: [
+            {
+              price: process.env[priceId], // Replace with the ID of your price
+              quantity: parseInt(quantity),
+            },
+          ],
+          mode: paymentMode,
+          successUrl: domain + 'success?session_id={CHECKOUT_SESSION_ID}',
+          cancelUrl: domain + 'donate',
+        });
+        form.classList.remove('was-validated');
+      } catch (error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `error.message`.
+        console.log('error', error.message);
+        setIsError(true);
+      }
     }
   };
 
